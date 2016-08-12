@@ -1,3 +1,9 @@
+"""
+This function is help identify and label keywords and phrases that are used in the
+SF open data portal.  This is aimed to segment the bad search terms such as addresses, the web links,
+and the actual relevant keyword search used.  
+
+"""
 import pandas as pd
 import re
 
