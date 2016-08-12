@@ -1,3 +1,12 @@
+import pandas as pd
+import re
+
+street = pd.read_csv('Street_Names.csv')
+
+street_names = pd.read_csv('street_names_clean.csv')
+
+street_name_list = list(street_names['Names'].values)
+
 # removing punctuation
 
 def removePunctuation(text):
