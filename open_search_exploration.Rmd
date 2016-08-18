@@ -15,15 +15,8 @@ library(ggplot2)
 ```
 
 
-```{r}
+```{r echo = FALSE}
 queries <- read_csv("data/all_queries.csv")
-
-# Check what these errors are from
-problems(queries)
-
-# We should remove these weird rows
-# Did every sheet that got combined create one?
-View(tail(queries))
 
 ```
 
@@ -46,6 +39,10 @@ https://data.sfgov.org/
 #### ga.searchStartPage(Search Page) 
 
 Page on site where the user enters terms for a web search
+
+
+- Worth also exploring based on page category (dropping everything after the 
+slash)
 
 
 #### ga.searchAfterDestinationPage(Search Destination Page)
@@ -93,7 +90,7 @@ The percentage of searches that resulted in an immediate exit from the property.
 - What is the difference between searchAfterDestinationPage == (exit) and 
 searchExitRate == 100?
 
-```{r}
+```{r, echo = FALSE}
 filter(queries,ga.searchAfterDestinationPage == '(exit)')
 ```
 
