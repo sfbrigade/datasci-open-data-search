@@ -1,0 +1,102 @@
+---
+title: "Open Search Exploration"
+author: "Scott Brenstuhl"
+date: "August 10, 2016"
+output: 
+    md_document:
+        variant: markdown_github
+---
+        
+```{r libraries, alert=FALSE, message = FALSE, echo = FALSE}
+library(readr)
+library(tidyr)
+library(dplyr)
+```
+
+
+```{r}
+queries <- read_csv("data/all_queries.csv")
+
+# Check what these errors are from
+problems(queries)
+
+# We should remove these weird rows
+# Did every sheet that got combined create one?
+View(tail(queries))
+
+```
+
+## Understanding the Data
+This data is coming from Google analytics "Site Search" funtionality, which is
+hooked up to the SF Open Data portal's search page. 
+
+A lot of the useful information about this can be found at: 
+https://developers.google.com/analytics/devguides/reporting/core/dimsmets
+
+
+
+#### ga.searchKeyword(Search Terms)
+
+These are the words and keywords that have been entered into the search form at
+https://data.sfgov.org/
+
+
+
+#### ga.searchStartPage(Search Page) 
+
+Page on site where the user enters terms for a web search
+
+```{r}
+tail(sort(table(queries$ga.searchStartPage)))
+```
+
+
+#### ga.searchAfterDestinationPage(Search Destination Page)
+
+The page that users visited after performing an internal search on the site.
+
+
+
+#### ga.searchUniques(Total Unique Searches)
+
+The total number of times your site search was used. This excludes multiple 
+searches on the same keyword during the same session.
+
+
+
+#### ga.avgSearchResultViews(Results Pageviews / Search)
+
+The average number of times people viewed a page as a result of a search.
+
+
+
+#### ga.avgSearchDepth(Average Search Depth)
+
+The average number of pages people viewed after performing a search.
+
+
+
+#### ga.percentSearchRefinements(Search Refinements)
+
+The percentage of the number of times a refinement (i.e., transition) occurs 
+between internal keywords search within a session.
+
+
+
+#### ga.searchDuration(Time after Search)
+
+The session duration when the site's internal search feature is used.
+
+
+
+#### ga.searchExitRate(Search Exits)
+
+The percentage of searches that resulted in an immediate exit from the property.
+
+- What is the difference between searchAfterDestinationPage == (exit) and 
+searchExitRate == 100?
+
+```{r}
+filter(queries,ga.searchAfterDestinationPage == '(exit)')
+```
+
