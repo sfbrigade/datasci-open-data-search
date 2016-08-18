@@ -11,6 +11,7 @@ output:
 library(readr)
 library(tidyr)
 library(dplyr)
+library(ggplot2)
 ```
 
 
@@ -27,7 +28,7 @@ View(tail(queries))
 ```
 
 ## Understanding the Data
-This data is coming from Google analytics "Site Search" funtionality, which is
+This data is coming from Google analytics "Site Search" functionality, which is
 hooked up to the SF Open Data portal's search page. 
 
 A lot of the useful information about this can be found at: 
@@ -45,10 +46,6 @@ https://data.sfgov.org/
 #### ga.searchStartPage(Search Page) 
 
 Page on site where the user enters terms for a web search
-
-```{r}
-tail(sort(table(queries$ga.searchStartPage)))
-```
 
 
 #### ga.searchAfterDestinationPage(Search Destination Page)

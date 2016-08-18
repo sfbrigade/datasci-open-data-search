@@ -43,7 +43,7 @@ View(tail(queries))
 Understanding the Data
 ----------------------
 
-This data is coming from Google analytics "Site Search" funtionality, which is hooked up to the SF Open Data portal's search page.
+This data is coming from Google analytics "Site Search" functionality, which is hooked up to the SF Open Data portal's search page.
 
 A lot of the useful information about this can be found at: <https://developers.google.com/analytics/devguides/reporting/core/dimsmets>
 
@@ -54,24 +54,6 @@ These are the words and keywords that have been entered into the search form at 
 #### ga.searchStartPage(Search Page)
 
 Page on site where the user enters terms for a web search
-
-``` r
-tail(sort(table(queries$ga.searchStartPage)))
-```
-
-    ## 
-    ##        '/browse/embed?category=Geographic+Locations+and+Boundaries&limit=20&limitTo=&q=&view_type=rich 
-    ##                                                                                                    431 
-    ##                          '/Economy-and-Community/Registered-Business-Locations-San-Francisco/g8m3-pdis 
-    ##                                                                                                    629 
-    ## '/browse/embed?Department-Metrics_Publishing-Department=&category=&limit=20&limitTo=&q=&view_type=rich 
-    ##                                                                                                   1468 
-    ##                                           '/browse/embed?category=&limit=20&limitTo=&q=&view_type=rich 
-    ##                                                                                                   2329 
-    ##                                                                                             (entrance) 
-    ##                                                                                                   4819 
-    ##                                                                                                     '/ 
-    ##                                                                                                  11566
 
 #### ga.searchAfterDestinationPage(Search Destination Page)
 
@@ -101,7 +83,7 @@ The session duration when the site's internal search feature is used.
 
 The percentage of searches that resulted in an immediate exit from the property.
 
--   What is the difference between searchAfterDestinationPage and searchExitRate == 100?
+-   What is the difference between searchAfterDestinationPage == (exit) and searchExitRate == 100?
 
 ``` r
 filter(queries,ga.searchAfterDestinationPage == '(exit)')
