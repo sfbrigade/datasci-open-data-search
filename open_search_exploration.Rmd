@@ -2,10 +2,11 @@
 title: "Open Search Exploration"
 author: "Scott Brenstuhl"
 date: "August 10, 2016"
-output: 
-    md_document:
-        variant: markdown_github
+output: html_document
+
 ---
+       md_document:
+        variant: markdown_github
         
 ```{r libraries, alert=FALSE, message = FALSE, echo = FALSE}
 library(readr)
@@ -17,6 +18,13 @@ library(ggplot2)
 
 ```{r echo = FALSE}
 queries <- read_csv("data/all_queries.csv")
+
+# Check what these errors are from
+problems(queries)
+
+# We should remove these weird rows
+# Did every sheet that got combined create one?
+View(tail(queries))
 
 ```
 
@@ -40,15 +48,33 @@ https://data.sfgov.org/
 
 Page on site where the user enters terms for a web search
 
+```{r}
+# Do we need to multiply these by the searchUnique column for accurate counts?
+top20 <- table(queries$ga.searchStartPage) %>%
+    sort(decreasing = TRUE) %>%
+    head(20) %>%
+    as.data.frame.table()
+
+names(top20) <- c('start_page', 'visits')
+
+ggplot(aes(x = start_page, y = visits), data = top20) +
+    geom_point()
+
+```
 
 - Worth also exploring based on page category (dropping everything after the 
-slash)
+second slash)
 
 
 #### ga.searchAfterDestinationPage(Search Destination Page)
 
 The page that users visited after performing an internal search on the site.
 
+```{r, echo=FALSE}
+head(unique(queries$ga.searchAfterDestinationPage),100)
+
+
+```
 
 
 #### ga.searchUniques(Total Unique Searches)
@@ -56,6 +82,19 @@ The page that users visited after performing an internal search on the site.
 The total number of times your site search was used. This excludes multiple 
 searches on the same keyword during the same session.
 
+Oddly the most common number of searches is 0 (if it's been 0 times how is it 
+here??)
+
+```{r, echo = FALSE}
+head(table(queries$ga.searchUniques),10)
+
+# Check that every term in filter(queries,ga.searchUniques == 0) has a counterpart with 1+ searches
+
+
+```
+
+Additional theory: Clicking back to a search page reruns and counts as a new 
+search
 
 
 #### ga.avgSearchResultViews(Results Pageviews / Search)
@@ -90,7 +129,7 @@ The percentage of searches that resulted in an immediate exit from the property.
 - What is the difference between searchAfterDestinationPage == (exit) and 
 searchExitRate == 100?
 
-```{r, echo = FALSE}
+```{r}
 filter(queries,ga.searchAfterDestinationPage == '(exit)')
 ```
 
