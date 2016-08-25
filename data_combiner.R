@@ -2,8 +2,9 @@
 
 # Deal with the weird format and headers
 query_reader <- function(data_file){
-    read.delim(data_file ,sep="\t", header=TRUE,
-              fileEncoding="UTF-16", skip = 15)
+    dt <- read.delim(data_file ,sep="\t", header=TRUE,
+                     fileEncoding="UTF-16", skip = 15)
+    dt[1:(nrow(dt)-4),]
     }
 
 # Get all query files
