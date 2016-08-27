@@ -2,11 +2,12 @@
 title: "Open Search Exploration"
 author: "Scott Brenstuhl"
 date: "August 10, 2016"
-output: html_document
+output:        
+    md_document:
+        variant: markdown_github
 
 ---
-       md_document:
-        variant: markdown_github
+
         
 ```{r libraries, alert=FALSE, message = FALSE, echo = FALSE}
 library(readr)
@@ -48,7 +49,7 @@ https://data.sfgov.org/
 
 Page on site where the user enters terms for a web search
 
-```{r}
+```{r echo = FALSE}
 # Do we need to multiply these by the searchUnique column for accurate counts?
 top20 <- table(queries$ga.searchStartPage) %>%
     sort(decreasing = TRUE) %>%
@@ -71,7 +72,7 @@ second slash)
 The page that users visited after performing an internal search on the site.
 
 ```{r, echo=FALSE}
-head(unique(queries$ga.searchAfterDestinationPage),100)
+#head(unique(queries$ga.searchAfterDestinationPage),100)
 
 
 ```
@@ -83,18 +84,25 @@ The total number of times your site search was used. This excludes multiple
 searches on the same keyword during the same session.
 
 Oddly the most common number of searches is 0 (if it's been 0 times how is it 
-here??)
+here??) After talking to Jason we have a theory that this is caused by when 
+people search for the same term multiple times in one session but do so from
+different ga.searchStartPage or go to a different ga.searchAfterDestinationPage.
 
-```{r, echo = FALSE}
-head(table(queries$ga.searchUniques),10)
+Support for this theory:
+- If Jason pulls the same report without searchStartPage and 
+searchAfterDestinationPage then it is about 60K rows shorter (was working off 
+his memory)
 
-# Check that every term in filter(queries,ga.searchUniques == 0) has a counterpart with 1+ searches
+- All terms with 0 searchUniques show up somewhere else with a searchUniques > 0
 
-
+```{r}
+filter(queries,ga.searchUniques == 0)$ga.searchKeyword %in% 
+    filter(queries, !ga.searchUniques == 0)$ga.searchKeyword %>%
+    table()
 ```
 
-Additional theory: Clicking back to a search page reruns and counts as a new 
-search
+Additional theory: Clicking back to a search page reruns the page and might 
+count it as a new search in the same session.
 
 
 #### ga.avgSearchResultViews(Results Pageviews / Search)

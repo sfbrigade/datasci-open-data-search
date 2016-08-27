@@ -1,12 +1,6 @@
-    ## Warning: 12 parsing failures.
-    ##   row               col               expected          actual
-    ## 10004 ga.searchExitRate no trailing characters .47905852236365
-    ## 20008 ga.searchExitRate no trailing characters .47905852236365
-    ## 30012 ga.searchExitRate no trailing characters .47905852236365
-    ## 36307 ga.searchExitRate no trailing characters .47905852236365
-    ## 46311 ga.searchExitRate no trailing characters .47905852236365
-    ## ..... ................. ...................... ...............
-    ## .See problems(...) for more details.
+    ## Source: local data frame [0 x 4]
+    ## 
+    ## Variables not shown: row (int), col (int), expected (chr), actual (chr)
 
 Understanding the Data
 ----------------------
@@ -23,7 +17,9 @@ These are the words and keywords that have been entered into the search form at 
 
 Page on site where the user enters terms for a web search
 
--   Worth also exploring based on page category (dropping everything after the slash)
+![](open_search_exploration_files/figure-markdown_github/unnamed-chunk-2-1.png)<!-- -->
+
+-   Worth also exploring based on page category (dropping everything after the second slash)
 
 #### ga.searchAfterDestinationPage(Search Destination Page)
 
@@ -32,6 +28,24 @@ The page that users visited after performing an internal search on the site.
 #### ga.searchUniques(Total Unique Searches)
 
 The total number of times your site search was used. This excludes multiple searches on the same keyword during the same session.
+
+Oddly the most common number of searches is 0 (if it's been 0 times how is it here??) After talking to Jason we have a theory that this is caused by when people search for the same term multiple times in one session but do so from different ga.searchStartPage or go to a different ga.searchAfterDestinationPage.
+
+Support for this theory: - If Jason pulls the same report without searchStartPage and searchAfterDestinationPage then it is about 60K rows shorter (was working off his memory)
+
+-   All terms with 0 searchUniques show up somewhere else with a searchUniques \> 0
+
+``` r
+filter(queries,ga.searchUniques == 0)$ga.searchKeyword %in% 
+    filter(queries, !ga.searchUniques == 0)$ga.searchKeyword %>%
+    table()
+```
+
+    ## .
+    ##  TRUE 
+    ## 65688
+
+Additional theory: Clicking back to a search page reruns the page and might count it as a new search in the same session.
 
 #### ga.avgSearchResultViews(Results Pageviews / Search)
 
@@ -55,7 +69,9 @@ The percentage of searches that resulted in an immediate exit from the property.
 
 -   What is the difference between searchAfterDestinationPage == (exit) and searchExitRate == 100?
 
-<!-- -->
+``` r
+filter(queries,ga.searchAfterDestinationPage == '(exit)')
+```
 
     ## Source: local data frame [967 x 9]
     ## 
