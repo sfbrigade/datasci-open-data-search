@@ -2,12 +2,13 @@
 title: "Open Search Exploration"
 author: "Scott Brenstuhl"
 date: "August 10, 2016"
-output:        
+output:  
     md_document:
-        variant: markdown_github
+        variant: markdown_github 
+
 
 ---
-
+ 
         
 ```{r libraries, alert=FALSE, message = FALSE, echo = FALSE}
 library(readr)
@@ -19,13 +20,6 @@ library(ggplot2)
 
 ```{r echo = FALSE}
 queries <- read_csv("data/all_queries.csv")
-
-# Check what these errors are from
-problems(queries)
-
-# We should remove these weird rows
-# Did every sheet that got combined create one?
-View(tail(queries))
 
 ```
 
@@ -58,8 +52,8 @@ top20 <- table(queries$ga.searchStartPage) %>%
 
 names(top20) <- c('start_page', 'visits')
 
-ggplot(aes(x = start_page, y = visits), data = top20) +
-    geom_point()
+#ggplot(aes(x = start_page, y = visits), data = top20) +
+#    geom_point()
 
 ```
 
@@ -104,6 +98,25 @@ filter(queries,ga.searchUniques == 0)$ga.searchKeyword %in%
 Additional theory: Clicking back to a search page reruns the page and might 
 count it as a new search in the same session.
 
+If our assumptions hold, we should be able to use these queries to look into 
+what terms people search and either dont find what they are looking for or to 
+narrow their explorations. (I think this is currently "what gets 
+searched the most", should likely figure out how to scale these based on the 
+values with > 0 searchUniques?)
+
+```{r}
+reran_searches <- filter(queries, ga.searchUniques == 0) %>% 
+                    group_by(search = ga.searchKeyword) %>%
+                    summarise(count = n()) %>%
+                    arrange(desc(count)) 
+
+ggplot(head(reran_searches, 20), aes(x = reorder(search, -count), y = count)) +
+    geom_bar(stat="identity") +
+    theme(axis.text.x = element_text(angle = -45, hjust = 0)) +
+    labs(x = 'search terms')
+    
+```
+
 
 #### ga.avgSearchResultViews(Results Pageviews / Search)
 
@@ -138,6 +151,6 @@ The percentage of searches that resulted in an immediate exit from the property.
 searchExitRate == 100?
 
 ```{r}
-filter(queries,ga.searchAfterDestinationPage == '(exit)')
+#filter(queries,ga.searchAfterDestinationPage == '(exit)')
 ```
 

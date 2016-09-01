@@ -1,7 +1,3 @@
-    ## Source: local data frame [0 x 4]
-    ## 
-    ## Variables not shown: row (int), col (int), expected (chr), actual (chr)
-
 Understanding the Data
 ----------------------
 
@@ -16,8 +12,6 @@ These are the words and keywords that have been entered into the search form at 
 #### ga.searchStartPage(Search Page)
 
 Page on site where the user enters terms for a web search
-
-![](open_search_exploration_files/figure-markdown_github/unnamed-chunk-2-1.png)<!-- -->
 
 -   Worth also exploring based on page category (dropping everything after the second slash)
 
@@ -47,6 +41,22 @@ filter(queries,ga.searchUniques == 0)$ga.searchKeyword %in%
 
 Additional theory: Clicking back to a search page reruns the page and might count it as a new search in the same session.
 
+If our assumptions hold, we should be able to use these queries to look into what terms people search and either dont find what they are looking for or to narrow their explorations. (I think this is currently "what gets searched the most", should likely figure out how to scale these based on the values with \> 0 searchUniques?)
+
+``` r
+reran_searches <- filter(queries, ga.searchUniques == 0) %>% 
+                    group_by(search = ga.searchKeyword) %>%
+                    summarise(count = n()) %>%
+                    arrange(desc(count)) 
+
+ggplot(head(reran_searches, 20), aes(x = reorder(search, -count), y = count)) +
+    geom_bar(stat="identity") +
+    theme(axis.text.x = element_text(angle = -45, hjust = 0)) +
+    labs(x = 'search terms')
+```
+
+![](open_search_exploration_files/figure-markdown_github/unnamed-chunk-5-1.png)<!-- -->
+
 #### ga.avgSearchResultViews(Results Pageviews / Search)
 
 The average number of times people viewed a page as a result of a search.
@@ -70,24 +80,5 @@ The percentage of searches that resulted in an immediate exit from the property.
 -   What is the difference between searchAfterDestinationPage == (exit) and searchExitRate == 100?
 
 ``` r
-filter(queries,ga.searchAfterDestinationPage == '(exit)')
+#filter(queries,ga.searchAfterDestinationPage == '(exit)')
 ```
-
-    ## Source: local data frame [967 x 9]
-    ## 
-    ##     ga.searchKeyword ga.searchStartPage ga.searchAfterDestinationPage
-    ##                (chr)              (chr)                         (chr)
-    ## 1        restaurants         (entrance)                        (exit)
-    ## 2              crime         (entrance)                        (exit)
-    ## 3         sfopenbook         (entrance)                        (exit)
-    ## 4            parking         (entrance)                        (exit)
-    ## 5      road polygons         (entrance)                        (exit)
-    ## 6         facilities         (entrance)                        (exit)
-    ## 7                sfo         (entrance)                        (exit)
-    ## 8              crime                 '/                        (exit)
-    ## 9            traffic         (entrance)                        (exit)
-    ## 10 business licenses         (entrance)                        (exit)
-    ## ..               ...                ...                           ...
-    ## Variables not shown: ga.searchUniques (int), ga.avgSearchResultViews
-    ##   (dbl), ga.avgSearchDepth (dbl), ga.percentSearchRefinements (dbl),
-    ##   ga.searchDuration (int), ga.searchExitRate (int)
