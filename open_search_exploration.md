@@ -9,11 +9,102 @@ A lot of the useful information about this can be found at: <https://developers.
 
 These are the words and keywords that have been entered into the search form at <https://data.sfgov.org/>
 
+This is what the bulk of our analysis will be covering so I will spare you the summaries.
+
 #### ga.searchStartPage(Search Page)
 
-Page on site where the user enters terms for a web search
+The page where users initiated an internal search.
 
--   Worth also exploring based on page category (dropping everything after the second slash)
+aka Page on site where the user enters terms for a web search?
+
+Pretty early on in the most common start page we get pretty specific pages:
+
+    ## Source: local data frame [6 x 2]
+    ## 
+    ##                                                            ga.searchStartPage
+    ##                                                                         (chr)
+    ## 1                                                                          '/
+    ## 2                                                                  (entrance)
+    ## 3                '/browse/embed?category=&limit=20&limitTo=&q=&view_type=rich
+    ## 4 '/browse/embed?Department-Metrics_Publishing-Department=&category=&limit=20
+    ## 5  '/browse/embed?category=Transportation&limit=20&limitTo=&q=&view_type=rich
+    ## 6 '/browse/embed?category=Geographic+Locations+and+Boundaries&limit=20&limitT
+    ## Variables not shown: count (int)
+
+So it's interesting to look at the root of the seach page (dropping everything after the second slash)
+
+    ## Source: local data frame [20 x 2]
+    ## 
+    ##                        startSearchRoot count
+    ##                                  (chr) (int)
+    ## 1                               browse 34077
+    ## 2                                      23550
+    ## 3                           (entrance)  8562
+    ## 4  Geographic-Locations-and-Boundaries   869
+    ## 5           City-Management-and-Ethics   410
+    ## 6                       Transportation   409
+    ## 7                                 data   383
+    ## 8                Economy-and-Community   381
+    ## 9                Housing-and-Buildings   329
+    ## 10                       Public-Safety   323
+    ## 11                 City-Infrastructure   277
+    ## 12              Culture-and-Recreation   149
+    ## 13          Health-and-Social-Services   123
+    ## 14                            showcase    99
+    ## 15              Energy-and-Environment    96
+    ## 16                                   w    59
+    ## 17                             profile    46
+    ## 18                             widgets    34
+    ## 19                             dataset    29
+    ## 20                               about    23
+
+Very confused about how sometimes this is a specific data set? Basicaly it seems like a lot of the start pages are specific data sets where there is not a search widget as in the ones below.
+
+``` r
+mostly_datasets <- !grepl('\\?', queries$ga.searchStartPage) & 
+                    queries$ga.searchStartPage != "(entrance)"  &
+                    queries$ga.searchStartPage != "'/" &
+                    str_count(queries$ga.searchStartPage, '/') > 1
+
+head(queries[mostly_datasets,], 20)
+```
+
+    ## Source: local data frame [20 x 10]
+    ## 
+    ##                 ga.searchKeyword
+    ##                            (chr)
+    ## 1                  open business
+    ## 2                            311
+    ## 3                          crime
+    ## 4            total housing units
+    ## 5                       business
+    ## 6                          crime
+    ## 7                          meter
+    ## 8                     no parking
+    ## 9                         police
+    ## 10                       Housing
+    ## 11                      pipeline
+    ## 12                      pipeline
+    ## 13                      pipeline
+    ## 14           total housing units
+    ## 15                           311
+    ## 16                        Murder
+    ## 17 Water Bodies in San Francisco
+    ## 18                      business
+    ## 19                      business
+    ## 20                   census 2010
+    ## Variables not shown: ga.searchStartPage (chr),
+    ##   ga.searchAfterDestinationPage (chr), ga.searchUniques (int),
+    ##   ga.avgSearchResultViews (dbl), ga.avgSearchDepth (dbl),
+    ##   ga.percentSearchRefinements (dbl), ga.searchDuration (int),
+    ##   ga.searchExitRate (int), startSearchRoot (chr)
+
+``` r
+# Uncomment and run to see all
+# View(queries[mostly_datasets,])
+```
+
+The highest count of searchUnique for these is 27 (then 6 and trails off fast), while there is roughly 18
 
 #### ga.searchAfterDestinationPage(Search Destination Page)
 
@@ -55,7 +146,7 @@ ggplot(head(reran_searches, 20), aes(x = reorder(search, -count), y = count)) +
     labs(x = 'search terms')
 ```
 
-![](open_search_exploration_files/figure-markdown_github/unnamed-chunk-5-1.png)<!-- -->
+![](open_search_exploration_files/figure-markdown_github/unnamed-chunk-7-1.png)<!-- -->
 
 #### ga.avgSearchResultViews(Results Pageviews / Search)
 
