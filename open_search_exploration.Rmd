@@ -2,18 +2,18 @@
 title: "Open Search Exploration"
 author: "Scott Brenstuhl"
 date: "August 10, 2016"
-output:  
-    md_document:
-        variant: markdown_github 
+output:   html_document
 
 
 ---
- 
+           md_document:
+        variant: markdown_github  
         
 ```{r libraries, alert=FALSE, message = FALSE, echo = FALSE}
 library(readr)
 library(tidyr)
 library(dplyr)
+library(stringr)
 library(ggplot2)
 ```
 
@@ -37,28 +37,74 @@ https://developers.google.com/analytics/devguides/reporting/core/dimsmets
 These are the words and keywords that have been entered into the search form at
 https://data.sfgov.org/
 
-
+This is what the bulk of our analysis will be covering so I will spare you the 
+summaries.
 
 #### ga.searchStartPage(Search Page) 
 
-Page on site where the user enters terms for a web search
+The page where users initiated an internal search. 
+
+aka Page on site where the user enters terms for a web search?
+
+Pretty early on in the most common start page we get pretty specific pages:
 
 ```{r echo = FALSE}
 # Do we need to multiply these by the searchUnique column for accurate counts?
-top20 <- table(queries$ga.searchStartPage) %>%
-    sort(decreasing = TRUE) %>%
-    head(20) %>%
-    as.data.frame.table()
+# top20 <- table(queries$ga.searchStartPage) %>%
+#     sort(decreasing = TRUE) %>%
+#     head(20) %>%
+#     as.data.frame.table()
+# 
+# names(top20) <- c('start_page', 'visits')
 
-names(top20) <- c('start_page', 'visits')
 
-#ggplot(aes(x = start_page, y = visits), data = top20) +
-#    geom_point()
+start_pages <- queries %>%
+            group_by(ga.searchStartPage) %>%
+            summarise(count = sum(ga.searchUniques)) %>%
+            arrange(desc(count))
+
+head(start_pages)
 
 ```
 
-- Worth also exploring based on page category (dropping everything after the 
+So it's interesting to look at the root of the seach page (dropping everything after the 
 second slash)
+
+```{r echo=FALSE}
+
+queries$startSearchRoot <- gsub('\\?.*', '', queries$ga.searchStartPage) %>%
+                            gsub("'\\/", '', .) %>%
+                            gsub("\\/.*", '', .)
+
+startPageRoot <- queries %>%
+                    group_by(startSearchRoot) %>%
+                    summarise(count = sum(ga.searchUniques)) %>%
+                    arrange(desc(count) )
+
+head(startPageRoot, 20)
+```
+
+
+
+Very confused about how sometimes this is a specific data set? Basicaly it seems
+like a lot of the start pages are specific data sets where there is not a search 
+widget as in the ones below.
+
+```{r}
+mostly_datasets <- !grepl('\\?', queries$ga.searchStartPage) & 
+                    queries$ga.searchStartPage != "(entrance)"  &
+                    queries$ga.searchStartPage != "'/" &
+                    str_count(queries$ga.searchStartPage, '/') > 1
+
+head(queries[mostly_datasets,], 20)
+
+# Uncomment and run to see all
+# View(queries[mostly_datasets,])
+
+```
+
+The highest count of searchUnique for these is 27 (then 6 and trails off fast), 
+while there is roughly 18
 
 
 #### ga.searchAfterDestinationPage(Search Destination Page)
