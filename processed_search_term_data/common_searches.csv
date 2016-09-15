@@ -1,0 +1,1682 @@
+processed_search_term,count
+crime,1118
+streets,851
+shapefile,744
+street,697
+parking,693
+census,659
+bike,585
+business,575
+building,529
+water,474
+neighborhood,471
+population,471
+parks,469
+311,463
+traffic,453
+bicycle,425
+muni,412
+income,408
+parcel,408
+fire,370
+housing,360
+school,346
+rent,331
+bart,327
+land use,323
+zoning,311
+bus,302
+neighborhoods,302
+gis,298
+parcels,297
+restaurant,293
+homeless,293
+food,287
+elevation,287
+buildings,286
+san francisco,279
+boundary,274
+pipeline,268
+roads,261
+police,258
+schools,252
+park,248
+address,246
+transit,223
+budget,220
+assessor,218
+tree,215
+transportation,209
+taxi,207
+restaurants,206
+sfmta,206
+building footprints,202
+property,201
+city,196
+trees,192
+pedestrian,189
+construction,186
+health,183
+businesses,182
+shapefiles,179
+bridge,177
+education,177
+block,177
+business license,175
+district,171
+bay area,171
+graffiti,165
+street cleaning,164
+building permits,163
+building footprint,162
+census tract,158
+road,157
+sfpd,157
+permit,156
+sewer,155
+noise,153
+blocks,153
+car,152
+map,152
+hospital,151
+districts,150
+city boundary,150
+airport,149
+zip code,148
+topography,146
+business licenses,145
+affordable housing,144
+open space,143
+contour,137
+campaign finance,135
+accidents,133
+real estate,130
+eviction,127
+permits,127
+basemap,126
+parking meter,125
+alcohol,125
+sfo,125
+aerial,124
+salary,124
+parking meters,123
+demographics,123
+shoreline,123
+accident,121
+flood,119
+air,118
+tax,117
+shp,117
+zip,115
+demographic,114
+assessment,111
+energy,111
+weather,111
+contours,111
+evictions,111
+age,110
+bus stops,107
+centerline,107
+art,107
+employment,105
+census shapefile,105
+footprint,104
+air quality,104
+planning,104
+streets of san francisco,104
+addresses,103
+housing inventory,102
+bay,100
+centerlines,100
+open spaces,100
+census tracts,99
+sidewalk,99
+cancer,99
+landuse,98
+bike lanes,98
+hotel,96
+csv,95
+public schools,94
+lobbyist,94
+business registration,94
+waste,94
+development pipeline,94
+coffee,94
+library,94
+city lots,94
+zip codes,94
+street sweeping,93
+boundaries,93
+bars,93
+dem,93
+census 2010,93
+facilities,92
+kml,92
+cleaning,91
+poverty,91
+building permit,91
+meter,90
+hospitals,89
+census 2000,89
+census block,88
+json,88
+base map,87
+uber,85
+population density,85
+density,85
+bike parking,84
+sidewalks,84
+public transportation,84
+cnn,84
+wind,84
+curb,83
+topo,83
+climate,83
+bike network,83
+business account number,83
+vacant,82
+bikeway,82
+retail,82
+highway,82
+recreation,81
+employee,81
+property assessment,81
+911,81
+crimes,81
+tourism,80
+parking tickets,79
+cad,79
+race,78
+soil,78
+children,78
+police districts,77
+city limits,77
+bay area general,77
+curbs,77
+sales,76
+building height,76
+public,76
+chinatown,75
+zoning districts,75
+street parking,75
+tickets,74
+intersections,74
+community,73
+citation,73
+caltrain,73
+shore,73
+supervisor,72
+food truck,72
+height,72
+address locator,71
+bridges,71
+tow,71
+human waste,71
+rental,71
+college,71
+job,71
+light,71
+registered business,70
+commercial,70
+earthquake,70
+campaign,70
+ban,69
+vegetation,69
+fire incidents,68
+street names,68
+rail,68
+lots,68
+hiv,68
+survey,68
+residential,68
+shelter,67
+footprints,66
+crime data,66
+poop,66
+imagery,66
+vehicle,65
+trail,65
+historic,64
+complaints,64
+base,64
+tenderloin,63
+slope,63
+sfpd incidents,63
+port,63
+inventory,63
+tract,63
+liquor,62
+film,62
+homicide,62
+water bodies in san francisco,62
+open business,62
+bicycle parking,62
+food trucks,61
+intersection,61
+libraries,61
+price,61
+orthophoto,61
+incidents,61
+land,60
+ethnicity,60
+street light,60
+vendor,60
+inclusionary housing,60
+mobile food,59
+building heights,58
+gps,58
+garbage,58
+bus stop,58
+hotels,57
+sf shoreline and islands,57
+shape file,56
+ortho,56
+events,56
+location,56
+violations,55
+bike lane,55
+contracts,55
+route,55
+sffind neighborhoods,55
+green,55
+insurance,55
+mission bay,55
+violation,54
+street centerlines,54
+wifi,54
+development,54
+planning neighborhoods,54
+rent control,54
+street trees,54
+bayview,54
+3d,53
+community gardens,53
+airbnb,53
+bus routes,53
+lidar,53
+census blocks,53
+childcare,53
+speed,52
+board of supervisors,52
+fire stations,52
+property tax,52
+animal,52
+census 2000 tracts no water,52
+popos,52
+cable,52
+sfpark,52
+registered businesses,52
+calls for service,51
+grocery,51
+inclusionary,51
+public space,51
+block group,51
+shoreline shapefile,51
+asthma,51
+traffic counts,51
+freeway,50
+ambulance,50
+sfshore,50
+public housing,49
+sffd,49
+median income,49
+utilities,49
+salaries,49
+pollution,49
+supervisor districts,49
+house,49
+sanfrancisco,49
+ferry,49
+trails,49
+affordable,48
+utility,48
+green space,48
+stclines,48
+disabled,48
+museum,48
+presidio,48
+street map,48
+meters,48
+collision,48
+trash,47
+solar,47
+bikes,47
+incident,47
+treasure island,47
+dpw,47
+jobs,47
+highways,47
+water bodies,47
+taz,46
+compensation,46
+license,46
+bike share,46
+census 2000 blocks no water,46
+ocean,46
+homelessness,46
+citations,46
+ticket,46
+traffic density,45
+colleges,45
+coast,45
+supervisor district,45
+mta,45
+tow zone,45
+shape,45
+spending,45
+garden,44
+network,44
+bay area  general,44
+business registration certificate,44
+wireless,44
+county,43
+sfmta bikeway network,43
+farmers market,43
+temperature,43
+inspection,43
+internet,43
+unemployment,43
+public art,43
+building age,43
+sanfranciscogdb,43
+real time,43
+crime incidents,43
+housing prices,42
+topographic,42
+zipcode,42
+seismic,42
+death,42
+fire department,42
+murder,42
+medical,42
+city survey,42
+bicycle accidents,42
+article 11,42
+electricity,41
+parcel data,41
+property assessment roll,41
+lyft,41
+form 700,41
+year built,41
+traffic count,41
+theft,41
+stormwater,41
+emergency,41
+dptbikenetwork,40
+traffic accidents,40
+terrain,40
+movie,40
+household income,40
+apn,40
+city blocks,40
+property value,40
+electricity use,40
+bernal lot size,39
+citylots,39
+rain,39
+right of way,39
+dbi,39
+fire station,39
+pbc,39
+san francisco crime,39
+child,38
+berkeley,38
+camera,38
+parking citation,38
+article 10,38
+parking lots,38
+crime rate,38
+something,38
+dui,38
+benches,38
+telegraph hill,38
+sro,38
+payroll,38
+church,38
+open,38
+truck,37
+job density,37
+arrests,37
+sf solar map,37
+watershed,37
+speed limit,37
+injury,37
+cafe,37
+north beach,37
+sweeping,37
+farmers markets,37
+image,37
+apartment buildings,37
+dog,36
+employees,36
+vendors,36
+complaint,36
+border,36
+china,36
+case,36
+api,36
+lgbt,36
+car ownership,36
+paving,36
+street of san francisco,36
+market,36
+streets shapefile,36
+obesity,36
+oakland,36
+hydrology,36
+auto,36
+train,36
+zone,35
+landmark,35
+parking citations,35
+vote,35
+parking ticket,35
+tech,35
+nonprofit,35
+bay trail,35
+census 2000 tracts,35
+film locations,35
+sfusd,35
+eas,35
+station,35
+child care,35
+ada,35
+air pollution,35
+police district,35
+food inspection,35
+geology,34
+envista,34
+university,34
+ethics,34
+cable car,34
+bicycle accident,34
+ridership,34
+election,34
+contract,34
+outline,34
+hazard,34
+airports,34
+trimmers,34
+drug,34
+lobby,34
+geojson,34
+finance,34
+feces,34
+speeding,34
+census 2000 blocks,34
+photo,34
+open spaces city planning,33
+housing price,33
+social,33
+bar,33
+bank,33
+bird,33
+revenue,33
+marriage,33
+precinct,33
+fte,33
+bus lines,33
+police stations,33
+cab,33
+assessment roll,33
+biz point,32
+pipeline 2015,32
+pipe,32
+road map,32
+center lines,32
+dumping,32
+vendor payments,32
+recycling,32
+flooding,32
+san francisco streets,32
+sf shore,32
+wine,32
+travel,32
+coastal,32
+open business locations,32
+chicago,32
+street network,31
+services,31
+stations,31
+lot,31
+movies,31
+street centerline,31
+union square,31
+campaign consultant,31
+liquefaction,31
+bench,31
+census2000,31
+sweep,31
+toilet,31
+public transit,31
+biking,31
+sfpuc,31
+bike theft,31
+city features,31
+lobbyists,30
+planning districts,30
+technology,30
+arterial,30
+tobacco,30
+gis data,30
+traffic accident,30
+on street parking,30
+streetlight,30
+google,30
+street shapefile,30
+allergies,30
+garage,30
+universities,30
+bathroom,30
+advisories,30
+dwg,30
+bike shapefile,29
+avenida epitacio pessoa ipanema rio de janeiro,29
+transport,29
+sea level rise,29
+form 460,29
+routes,29
+bus accidents,29
+storm,29
+agriculture,29
+crime map,29
+data catalog,29
+dataset inventory,29
+general plan,29
+transit stops,29
+2010 census,29
+pole,29
+latitude,29
+museums,29
+property owner,29
+high injury,29
+lobbyist activity,29
+parcel map,29
+chinese,28
+illegal dumping,28
+maher,28
+collisions,28
+use,28
+bike route,28
+twitter,28
+cafe bakery,28
+economic,28
+inspections,28
+business locations,28
+water usage,28
+health care,28
+address points,28
+active business,28
+busines,28
+realtime,28
+elections,28
+employee compensation,28
+raster,28
+health score,28
+castro,28
+wind monitoring,28
+canopy,28
+startup,27
+cannabis,27
+avl,27
+business district,27
+city limit,27
+owner,27
+restaurant inspection,27
+rent board,27
+sf development pipeline,27
+landmarks,27
+traffic volume,27
+curb ramp,27
+maps,27
+speed limits,27
+cities,27
+public works,27
+coastal zone,27
+clean,27
+san francisco shoreline,26
+drainage,26
+street center,26
+brownfield,26
+sf311,26
+at,26
+bus route,26
+street lights,26
+community center,26
+fires,26
+building outline,26
+sfdph,26
+affordability,26
+schedule e,26
+landslide,26
+small business,26
+gdp,26
+new york,26
+cbd,26
+data,26
+census 2000 block group,26
+liquor store,26
+pavement,26
+security,26
+muni routes,26
+cost,26
+bayview hunters point,26
+beach,26
+environment,26
+home,26
+eviction notices,26
+restaurant inspections,26
+lights,25
+healthcare,25
+performance,25
+pipeline 2012,25
+expenditures,25
+workers,25
+plant,25
+cctv,25
+tree canopy,25
+building outlines,25
+city boundaries,25
+street tree,25
+sanitation,25
+baker places,25
+economy,25
+area,25
+parking restrictions,25
+youth,25
+subway,25
+center line,25
+business location,25
+street sweep,25
+digital elevation model,25
+road network,25
+basil thai,25
+traffic tickets,25
+clinic,25
+university of san francisco,25
+tourist,25
+prostitution,25
+property values,25
+vmt,25
+point,25
+mobile,25
+public library,25
+counties,24
+precipitation,24
+churches,24
+460 e,24
+parklet,24
+cases,24
+san francisco boundary,24
+commute,24
+cell,24
+shop,24
+preservation,24
+shooting,24
+parklets,24
+traffic lights,24
+foodtruck,24
+benchmark,24
+recology,24
+muni stops,24
+low income,24
+water quality,24
+birth,24
+car sharing,24
+household,24
+time,24
+altitude,24
+public health,24
+street maps,24
+maintenance,24
+lobbying,24
+bikeway network,24
+ems,24
+gentrification,24
+tracts,24
+pothole,24
+facility,24
+river,23
+certified payroll,23
+non profit,23
+tax lots,23
+gardens,23
+vision zero,23
+golden gate,23
+restroom,23
+adt,23
+prices,23
+names,23
+appeals,23
+cell phone,23
+street sweeping schedule,23
+condominium,23
+precincts,23
+coastline,23
+test,23
+railroad,23
+bike accidents,23
+buisness,23
+ethnic,23
+san francisco map,23
+burglary,23
+vacancy,23
+building construction,23
+aspect,23
+fiber,23
+pipeline 2013,23
+commuting,23
+motorcycle,23
+aadt,23
+sffacs,23
+grocery stores,23
+sf shoreline,23
+animals,23
+drain,23
+dog patch,22
+police station,22
+criminal,22
+sports,22
+uncashed,22
+crime statistics,22
+creek,22
+county boundary,22
+injuries,22
+realtor,22
+suicide,22
+sf streets,22
+land cover,22
+city outline,22
+developer,22
+sweeper,22
+median rent,22
+pci,22
+bikeshare,22
+building use,22
+golden gate bridge,22
+search datasf,22
+registered business locations,22
+sea level,22
+below market rate,22
+board,22
+parcel owner,22
+mortgage,22
+food inspections,22
+mission district,22
+parking violations,22
+parking signs,22
+walk,22
+bay outline,22
+parking lot,22
+metro,22
+basemap street centerlines,22
+city facilities,21
+pbc code,21
+rape,21
+gay,21
+base mao,21
+pipeline 2014,21
+habitat,21
+basemap street centerlines shapefile,21
+bicycle theft,21
+mission,21
+news,21
+pier,21
+marijuana,21
+licenses,21
+traffic light,21
+cancer risk,21
+entitlements,21
+san francisco shapefile,21
+appraisal roll,21
+boundry,21
+grocery store,21
+tow away,21
+gtfs,21
+private schools,21
+stop,21
+bay area counties,21
+fuel,21
+zipcodes,21
+mental health,20
+bike routes,20
+co2,20
+sfopenbook,20
+block groups,20
+6524032,20
+waterfront,20
+public parks,20
+naics,20
+sport,20
+freeways,20
+resturant,20
+projects,20
+cost of living,20
+bay area zip codes,20
+baytrail,20
+san francisco county,20
+sales tax,20
+deaths,20
+conference,20
+industrial,20
+home sales,20
+companies,20
+diabetes,20
+fog,20
+homeless shelter,20
+,20
+catalog,20
+grid,20
+manhole,20
+taxes,20
+senior,20
+census2000blknowater,20
+entertainment,20
+excavation,20
+registered,20
+event,20
+city map,20
+lottery,20
+assess,20
+ownership,20
+cases by channel,20
+heat,20
+people,20
+purchase,19
+congestion,19
+puc,19
+taylor,19
+shelters,19
+deed,19
+immigration,19
+dogs,19
+business registration certificate number,19
+condo,19
+checkbook,19
+recreation and parks,19
+sun,19
+pdf parcel,19
+shape files,19
+recreation centers,19
+sf boundary,19
+460 forms schedule a,19
+service requests,19
+candidate name,19
+public school,19
+house price,19
+crime shapefile,19
+sexual assault,19
+housing code violations,19
+national parks,19
+concealed weapons permits,19
+cars,19
+abandoned,19
+occupation,19
+orthophotos,19
+san francisco outline,19
+police department,19
+workforce,19
+open spaces  city planning,19
+resiliency,19
+dpt bike network,19
+fema,19
+btod,19
+bike route network,19
+women,19
+excelsior,19
+schedule a,19
+grafitti,19
+potholes,19
+grade,19
+health facilities,19
+land value,19
+commute time,19
+impervious,18
+music,18
+property records,18
+block lot,18
+meeting time,18
+motorcycle parking,18
+benchmarking,18
+solar map,18
+claims,18
+supervisorial districts,18
+business map,18
+car theft,18
+civic center,18
+bart stations,18
+neighborhood boundaries,18
+toilets,18
+murders,18
+bcdc,18
+street center lines,18
+arrest,18
+probation,18
+central subway,18
+bus line,18
+buyouts,18
+arcgis,18
+planning cases,18
+market street,18
+business certificate,18
+traffic signals,18
+stops,18
+incomes,18
+bay area cities,18
+towing,18
+citywide performance measurement,18
+street closures,18
+homicides,18
+school zones,18
+floodplain,18
+foreclosure,18
+sf flower mart,18
+disabled parking,18
+public safety,18
+films,18
+gang,18
+external datasets,18
+enforcement,18
+water use,18
+heights,18
+form 700 schedules,18
+value,18
+diana lerner,18
+3d building,18
+recycle,18
+sale,18
+rent prices,18
+ellis,18
+urban tree,18
+procurement,17
+bay area shapefile,17
+violent crime,17
+juvenile,17
+aviation,17
+court,17
+jail,17
+parking permit,17
+california census tracts,17
+crash,17
+date,17
+city employees,17
+no parking,17
+sffind,17
+litter,17
+religion,17
+climate and health,17
+tickets parking,17
+equity,17
+offices,17
+golden gate park,17
+golf,17
+classification,17
+betterdoctor,17
+historical,17
+gas,17
+plan,17
+health scores,17
+web,17
+castro sf,17
+toxic,17
+affordable housing units,17
+housing authority,17
+electric,17
+african american health,17
+pedestrian injury,17
+tunnel,17
+wetlands,17
+vacant lots,17
+candidates,17
+sf elevation,17
+commercial zones,17
+voting,17
+offstreet parking,17
+spending and revenue,17
+campaign contributions,17
+special use districts,17
+stories,17
+human trafficking,17
+disaster,17
+edge of pavement,17
+stores,17
+beer,16
+street evaluation,16
+filbert 1880,16
+beauty,16
+community centers,16
+traffic noise,16
+community garden,16
+commercial building,16
+san francisco street,16
+street furniture,16
+curb ramps,16
+carshare,16
+particulate,16
+carbon,16
+accessibility,16
+ellis act,16
+135 post street,16
+levis,16
+water consumption,16
+census 2000 block,16
+work,16
+fitness,16
+bike thefts,16
+pets,16
+assessors,16
+miss saigon,16
+flight,16
+flood zone,16
+pdr,16
+mode share,16
+homeless population,16
+analysis neighborhoods,16
+san francisco public schools,16
+bicycle lanes,16
+historic district,16
+loading zones,16
+dog parks,16
+diversion,16
+area plans,16
+muni lines,16
+alcatraz,16
+sfpd crime incident reporting system,16
+sex,16
+parking census,16
+tide,16
+sign,16
+parking violation,16
+crime rates,16
+bart station,16
+soma,16
+excrement,16
+units,16
+311 calls,16
+crime classification,16
+short term rental,16
+bay area street,16
+daycare,16
+alameda,16
+yerba buena gardens,16
+satisfaction,16
+bay bridge,16
+culure and recreation,16
+geocode,15
+annexations,15
+calworks,15
+human resources,15
+number of tickets opened,15
+sf street sweeping schedule,15
+wastewater,15
+arson,15
+historic preservation,15
+streetlights,15
+active business locations,15
+voter,15
+blocklot,15
+california register,15
+basketball,15
+employment rate,15
+attraction,15
+exceptions,15
+minority,15
+lines,15
+walking,15
+architecture,15
+chinese food,15
+san francisco crime classification,15
+bike path,15
+street sweeper,15
+children in poverty,15
+rio de janeiro,15
+city district shapefile,15
+realtorneighborhoods,15
+bicycle network,15
+city college,15
+property information map,15
+business search,15
+city property,15
+treasurer and tax collector,15
+sensor,15
+businesses registered in san francisco,15
+yelp,15
+san francisco neighborhoods,15
+min wage ord,15
+education rate,15
+tidal,15
+unified school disctrict,15
+telecom,15
+car thifte,15
+sfpd incident,15
+single room occupancy,15
+firms,15
+disease,15
+health inspection,15
+collection,15
+supervisorial,15
+connectivity,15
+street center line,15
+washington street usps zip code 94118,15
+neighborhood shapefile,15
+building code violations,15
+wetland,15
+year,15
+volume,15
+property taxes,15
+cycling,15
+casale,15
+accepted streets,15
+comunity garden,15
+fire station locations,15
+natural,15
+care not cash,15
+boston,15
+apartment,15
+onstreet parking,15
+building inspections,14
+meter rate,14
+building inspection,14
+arts commission,14
+senior center,14
+response,14
+crime 2014,14
+weight,14
+valle de ninos,14
+email,14
+campaign committees,14
+crosswalk,14
+bike racks,14
+property information,14
+superior court,14
+renter,14
+pet,14
+santa clara,14
+census data,14
+operate business,14
+data inventory,14
+personnel,14
+species,14
+permit parking,14
+sewer lines,14
+sf neighborhoods,14
+travel time,14
+assessors roll,14
+neighbourhood,14
+block group 2010,14
+soils,14
+watersheds,14
+pictometry,14
+crime 2015,14
+senior care services,14
+bmi,14
+calls,14
+schedule,14
+prevention,14
+hayes valley,14
+consumer,14
+street corners,14
+muni metro,14
+code,14
+italy,14
+disability,14
+bathymetry,14
+business registration certificates,14
+san francisco bay area,14
+ramp,14
+better streets plan,14
+ozone,14
+time series,14
+homeownership,14
+sfo customer,14
+visitor,14
+parks and open spaces,14
+addresses with units,14
+infrastructure,14
+maritime,14
+ingleside,14
+india,14
+alcohol outlet,14
+power lines,14
+safer grant,14
+sfpd reported incidents,14
+school districts,14
+demography,14
+history,14
+san francisco state university,14
+steven holland,14
+fillmore,14
+government,14
+grafiti,14
+amenities,14
+city parcels,14
+city owned,14
+tax revenue,14
+count,14
+van ness,14
+safety,14
+citylot,14
+parking permits,14
+california,14
+risk,14
+satellite,14
+existing commercial buildings,14
+traffic calming,14
+street signs,14
+4 persia avenue,14
+street segment,14
+transient occupancy tax,14
+points,14
+council,14
+street permit,14
+environmental,14
+health inspections,13
+california county,13
+total housing units,13
+employment rate san francisco,13
+markets,13
+film location,13
+caltrans,13
+boiler,13
+business license lookup,13
+marina,13
+bulb,13
+asian,13
+seismic hazard,13
+treatment,13
+sewer mains,13
+tax parcels,13
+parks shapefile,13
+map of san francisco,13
+parcel numbers,13
+pedestrian safety,13
+smf,13
+fire district,13
+gun,13
+rent price,13
+building shapefile,13
+sewer issues,13
+school district,13
+real estate sales,13
+san fransisco,13
+raw data,13
+historic zoning,13
+closed,13
+published data,13
+wildlife,13
+class code,13
+hydro,13
+state employee,13
+dogpatch,13
+cityowned,13
+public transport,13
+playground,13
+city owned property,13
+hunters point,13
+san francisco building,13
+domestic violence,13
+mortality,13
+jurisdiction,13
+moratorium,13
+plaza,13
+square footage,13
+death certificates,13
+alleys,13
+revenue tax,13
+defecation,13
+construction list,13
+demograph,13
+storm water,13
+homeless shelters,13
+information security,13
+muni shapefile,13
+bayareabridges,13
+average daily traffic,13
+row,13
+private,13
+aircraft,13
+resturants,13
+community benefit district,13
+community based organizations,13
+commercial buildings,13
+dispensary,13
+port jurisdiction,13
+bathrooms,13
+san francisco basemap,13
+muni stations,13
+bicycles,13
+datasets,13
+lbe,13
+ceqa,13
+software,13
+phone,13
+fleet,13
+hercules,13
+banking,13
+socio economic,13
+summary,13
+annual revenue,13
+permit consultant,13
+city council,13
+miles,13
+performance measure,13
+cell tower,13
+elevation contours,13
+gender,13
+elevations,13
+birch,13
+culture,13
+resonance,13
+daily,13
+channel,13
+flood plain,13
+2014 housing inventory,13
+spend,13
+crime incident,13
+south sf,13
+city and county of san francisco,13
+planning areas,13
+active,13
+bike rentals,13
+drinking water,13
+planning applications,13
+drugs,13
+drunk driving,13
+neighbourhoods,13
+housing pipeline,13
+pipeline 2011,13
+awss,12
+transit shapefile,12
+vehicles,12
+geographic,12
+roll,12
+neighborhood map,12
+fault,12
+gasoline,12
+brigitte wilson,12
+treasure island crime,12
+groundwater,12
+bid,12
+bids contracts,12
+vehicle ownership,12
+bike accident,12
+office space,12
+bike network shapefile,12
+bike paths,12
+green roofs,12
+green connections,12
+block map,12
+729 shotwell st,12
+san francisco facilities,12
+bikeways,12
+metadata,12
+fire districts,12
+open busienss,12
+topology,12
+occupancy,12
+fppc,12
+food safety,12
+restrooms,12
+tnc,12
+bayview district,12
+salon,12
+zoning map,12
+assesment,12
+aupair,12
+san francisco bay,12
+mrsid,12
+better streets,12
+fire inspections,12
+san francisco boundaries,12
+bicycle count,12
+body,12
+residential parking,12
+attractions,12
+car accidents,12
+dpw paving,12
+life expectancy,12
+polygon,12
+doctor,12
+street parking map,12
+document,12
+civic art collection,12
+water main,12
+sfmta bikeway,12
+americas best value inn,12
+americas cup,12
+hillshade,12
+city hall,12
+street tree list,12
+street use permits,12
+high injury corridors,12
+high crime rate shapefile,12
+landfill,12
+earthquakes,12
+census tracks,12
+pesticide,12
+census block 2000,12
+census 2000 shapefile,12
+lease,12
+2010 census tracts,12
+elevator,12
+supervisors,12
+redevelopment,12
+car share,12
+district map,12
+jakarta,12
+use code,12
+ship,12
+web analytics,12
+public facilities,12
+social media,12
+aerial photo,12
+housing units,12
+public spaces,12
+hydrant,12
+starbucks,12
+day care,12
+ice cream,12
+watering holes,12
+stclinesstreets,12
+contamination,12
+rainfall,12
+storefront political media,12
+shapefile bike,12
+compost,12
+water supply,12
+water shapefile,12
+community benefit districts,12
+street arcgis,12
+power,12
+potrero hill,12
+internet connectivity,12
+postal,12
+code violation,12
+car accident,12
+rivers,12
+parks and recreation,12
+handicap,12
+parking spot,12
+cad files,12
+parking fine,12
+parking spaces,12
+liquor license,12
+business registry,12
+scriptscriptalert1script,12
+pbc codes,12
+parking regulations,12
+xem k trieu,12
+business portal,12
+parking zones,12
+vehicle counts,12
+excel,12
+business certificates,12
+secured property assessment,12
+business major,12
+yamadaya,12
+light rail,12
+fauna,11
+bay area water,11
+sharebetter sf,11
+stop sign,11
+freight,11
+quality transmission,11
+restuarant,11
+commute times,11
+rent burden,11
+traffic violation,11
+traffic transportation,11
+hoa,11
+community resiliency,11
+consumption,11
+sfpdincidents2013,11
+community challenge,11
+fed,11
+committee name mapping,11
+bedrooms,11
+traffic stops,11
+business certifcates,11
+business license list,11
+street grade,11
+noise complaints,11
+canarias,11
+nob hill,11
+property lines,11
+dataset,11
+the crew,11
+bart shapefile,11
+transit frequency,11
+national register,11
+data dictionary,11
+house sales,11
+farm,11
+socrata,11
+socioeconomic,11
+transit routes,11
+building floor area,11
+parking availability,11
+san mateo,11
+transit stop,11
+map of,11
+credit,11
+bryant street sewer repairs,11
+thomas angelo,11
+continental appliance,11
+running,11
+population growth,11
+stock,11
+gis shapefile,11
+battery,11
+contractors,11
+contributions,11
+buildings footprint,11
+shopping,11
+fatalities,11
+sat,11
+counts,11
+property assessors roll,11
+datum,11
+prison,11
+muni feedback,11
+population by ethnicity,11
+business liscense,11
+energy benchmarking,11
+language,11
+census2010blknowater,11
+edge,11
+ed lee,11
+striping,11
+bike shape,11
+changes,11
+sf outline,11
+liquor stores,11
+grant,11
+hetch hetchy,11
+registered business location,11
+physical,11
+flood zones,11
+recorder,11
+health insurance,11
+medical marijuana,11
+case data,11
+lighting,11
+campaign finance  fppc,11
+open spaces – city planning,11
+employ,11
+green business,11
+emissions,11
+tower,11
+senior centers,11
+block search,11
+sex offender,11
+open space shapefile,11
+cases and business,11
+legal,11
+catholic churches,11
+outfall,11
+high school,11
+realtor neighborhoods,11
+jane kim,11
+street space,11
+borehole,11
+business registered,11
+padmapper,11
+job titles by classification,11
+business permits,11
+street name,11
+traffic counts on van ness ave,11
+business names,11
+traffic injury,11
+popular baby name,11
+ramen yamadaya,11
+service,11
+cnn changes,11
+poi,11
+business tax,11
+chinese immigrant women,11
+city boundary data,11
+labor,11
+bussiness,11
+mobile food truck,11
+park and open space,11
+planning neighborhood,11
+higher education,11
+moh,11
+passenger,11
+downtown,11
+city feature,11
+real,11
+patient detail,11
+street structure,11
+business taxes,11
+san jose,11
+neighborhood groups map,11
+airlines,11
+3d model,11
+auto return platinum,11
+311abandoned,11
+ap 201 california llc,11
+aaron peskin,11
+zone id,11
+355 bocana street,11
+aids,11
+2013 housing inventory,11
+water related,11
+anti smoking,11
+appraisal,11
+transportation 2015 map,11
+warrant,11
+wind speed,11
+wages,11
+ucsf,11
+truck routes,11
+annual bicycle count,11
+water pipe,11
+assesor,11
+twister donut,11
+zoning district,11
+alain gervais,11
+aid,11
+apps,11
+unclaimed funds,11
+turk,11
