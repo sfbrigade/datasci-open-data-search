@@ -2,16 +2,20 @@
 title: "Open Search Exploration"
 author: "Scott Brenstuhl"
 date: "August 10, 2016"
-output: 
-    md_document:
-        variant: markdown_github
+output:   
+           md_document:
+                variant: markdown_github  
+
 ---
+
         
 ```{r libraries, alert=FALSE, message = FALSE, echo = FALSE}
 library(readr)
 library(tidyr)
 library(dplyr)
+library(stringr)
 library(ggplot2)
+library(printr)
 ```
 
 
@@ -34,21 +38,86 @@ https://developers.google.com/analytics/devguides/reporting/core/dimsmets
 These are the words and keywords that have been entered into the search form at
 https://data.sfgov.org/
 
-
+This is what the bulk of our analysis will be covering so I will spare you the 
+summaries.
 
 #### ga.searchStartPage(Search Page) 
 
-Page on site where the user enters terms for a web search
+The page where users initiated an internal search. 
+
+aka Page on site where the user enters terms for a web search?
+
+Pretty early on in the most common start page we get really specific pages:
+
+```{r echo = FALSE}
+# Do we need to multiply these by the searchUnique column for accurate counts?
+# top20 <- table(queries$ga.searchStartPage) %>%
+#     sort(decreasing = TRUE) %>%
+#     head(20) %>%
+#     as.data.frame.table()
+# 
+# names(top20) <- c('start_page', 'visits')
 
 
-- Worth also exploring based on page category (dropping everything after the 
-slash)
+start_pages <- queries %>%
+            group_by(ga.searchStartPage) %>%
+            summarise(count = sum(ga.searchUniques)) %>%
+            arrange(desc(count))
+
+head(start_pages)
+
+```
+
+
+So it's interesting to look at the root of the search page (dropping everything after the 
+second slash)
+
+```{r echo=FALSE}
+
+queries$startSearchRoot <- gsub('\\?.*', '', queries$ga.searchStartPage) %>%
+                            gsub("'\\/", '', .) %>%
+                            gsub("\\/.*", '', .)
+
+startPageRoot <- queries %>%
+                    group_by(startSearchRoot) %>%
+                    summarise(count = sum(ga.searchUniques)) %>%
+                    arrange(desc(count) )
+
+head(startPageRoot, 20)
+```
+
+
+
+I'm very confused about how sometimes this is a specific data set? Basically it seems
+like a lot of the start pages are specific data sets where there is not a search 
+widget such as in the ones below.
+
+```{r}
+mostly_datasets <- !grepl('\\?', queries$ga.searchStartPage) & 
+                    queries$ga.searchStartPage != "(entrance)"  &
+                    queries$ga.searchStartPage != "'/" &
+                    str_count(queries$ga.searchStartPage, '/') > 1
+
+head(queries[mostly_datasets,], 20)
+
+# Uncomment and run to see all
+# View(queries[mostly_datasets,])
+
+```
+
+The highest count of searchUnique for these is 27 (then 6 and trails off fast), 
+while there is roughly 1900 rows total.
 
 
 #### ga.searchAfterDestinationPage(Search Destination Page)
 
 The page that users visited after performing an internal search on the site.
 
+```{r, echo=FALSE}
+#head(unique(queries$ga.searchAfterDestinationPage),100)
+head(sort(table(queries$ga.searchAfterDestinationPage), decreasing = TRUE), 20)
+
+```
 
 
 #### ga.searchUniques(Total Unique Searches)
@@ -56,6 +125,45 @@ The page that users visited after performing an internal search on the site.
 The total number of times your site search was used. This excludes multiple 
 searches on the same keyword during the same session.
 
+Oddly the most common number of searches is 0 (if it's been 0 times how is it 
+here??) After talking to Jason we have a theory that this is caused by when 
+people search for the same term multiple times in one session but do so from
+different ga.searchStartPage or go to a different ga.searchAfterDestinationPage.
+
+Support for this theory:
+- If Jason pulls the same report without searchStartPage and 
+searchAfterDestinationPage then it is about 60K rows shorter (was working off 
+his memory)
+
+- All terms with 0 searchUniques show up somewhere else with a searchUniques > 0
+
+```{r}
+filter(queries,ga.searchUniques == 0)$ga.searchKeyword %in% 
+    filter(queries, !ga.searchUniques == 0)$ga.searchKeyword %>%
+    table()
+```
+
+Additional theory: Clicking back to a search page reruns the page and might 
+count it as a new search in the same session.
+
+If our assumptions hold, we should be able to use these queries to look into 
+what terms people search and either don't find what they are looking for or to 
+narrow their explorations. (I think this is currently "what gets 
+searched the most", should likely figure out how to scale these based on the 
+values with > 0 searchUniques?)
+
+```{r}
+reran_searches <- filter(queries, ga.searchUniques == 0) %>% 
+                    group_by(search = ga.searchKeyword) %>%
+                    summarise(count = n()) %>%
+                    arrange(desc(count)) 
+
+ggplot(head(reran_searches, 20), aes(x = reorder(search, -count), y = count)) +
+    geom_bar(stat="identity") +
+    theme(axis.text.x = element_text(angle = -45, hjust = 0)) +
+    labs(x = 'search terms')
+    
+```
 
 
 #### ga.avgSearchResultViews(Results Pageviews / Search)
@@ -90,7 +198,7 @@ The percentage of searches that resulted in an immediate exit from the property.
 - What is the difference between searchAfterDestinationPage == (exit) and 
 searchExitRate == 100?
 
-```{r, echo = FALSE}
-filter(queries,ga.searchAfterDestinationPage == '(exit)')
+```{r}
+#filter(queries,ga.searchAfterDestinationPage == '(exit)')
 ```
 
