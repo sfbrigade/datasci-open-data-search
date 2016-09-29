@@ -204,3 +204,21 @@ The percentage of searches that resulted in an immediate exit from the property.
 ``` r
 #filter(queries,ga.searchAfterDestinationPage == '(exit)')
 ```
+
+Potential questions we can explore
+----------------------------------
+
+Are people finding what they are looking for? - how can we identify successful vs unsuccessful search.
+
+Where do people search from? - different searches per search area
+
+Maybe people go from categories find what they are looking for more often.
+
+Can we figure out what things people search for often, but is not available?
+
+To ask Jason
+------------
+
+Can get some sort of timestamp or session data?
+
+What other specific questions would you like to see us explore?
