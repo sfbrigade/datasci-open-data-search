@@ -12,7 +12,7 @@ This project aims to use analytics and topic modelling of search text to improve
 * [Scott Brenstuhl](https://github.com/808sAndBR)
 
 ## Data Processing 
-* [data_combiner.R](https://github.com/sfbrigade/open-data-search/blob/master/data_combiner.R) - Script that combines raw data from .tsv files into a single .csv file
+* [Data Combiner](https://github.com/sfbrigade/open-data-search/blob/master/data_combiner.R) - Script that combines raw data from .tsv files into a single .csv file
 * [Search Data Processing Jupyter Notebook](https://github.com/sfbrigade/open-data-search/blob/master/search_data_processing.ipynb) - Notebook that cleans, processes and categorizes search terms
 
 ## Topic Modelling
