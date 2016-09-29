@@ -41,18 +41,40 @@ for name_count in (S):
     name.append(name_count[0])
     count.append(name_count[1])
 
-table = pd.DataFrame(columns=['Name','Count'])
+def LOC(string):
+    '''
+    This function will work after much better if you have cleaned 
+    and identified relevant search terms.
+    
+    Input: A string of relevant search terms
+    Output: pulls out names of people identified from the Named Entity Recognition 
+    software polyglot
+    '''
+    NER = Text(string)
+    NER = NER.entities
+    ent = [removePunctuation(re.sub('I-LOC','',str(entity))) for entity in NER if entity.tag == "I-LOC"]
+    ent =[' '.join(set([w[1:] for w in word.split(' ')])) for word in ent]
+    return list((ent))
 
-table['Name'] = name
-table['Count'] = count
+Location = LOC(string_word) 
 
-table.to_csv('people_count.csv')
+Location_counter = Counter(Location).most_common()
+loc = []
+cnt = []
 
-#cPickle.dump(string,open('NER_people_list.p','wb'))
-# creates a list of saved file
-# to load:
+for loc_count in (Location_counter):
+    loc.append(loc_count[0])
+    cnt.append(loc_count[1])
 
-# common_words = set(cPickle.load(open('NER_people_list.p', 'rb')))
+table1 = pd.DataFrame(columns=['Name','Name_Count'])
+table2 = pd.DataFrame(columns=['Location','Location_Count'])
+table1['Name'] = name
+table1['Count'] = count
+table2['Location'] = loc
+table2['Location_Count'] = cnt
+
+table1.to_csv('people_count.csv')
+table2.to_csv('location_count.csv')
 
 #link:
 
