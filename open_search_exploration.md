@@ -205,6 +205,15 @@ The percentage of searches that resulted in an immediate exit from the property.
 #filter(queries,ga.searchAfterDestinationPage == '(exit)')
 ```
 
+What we have
+------------
+
+Search quality types - Addresses, dates, names, good searches, etc. - This is where by user data would be helpful
+
+Topic search tool - To be able to look at searches by topics - Can do more analytics around searches by topic
+
+General field explnations - Simple summaries from some of these fields
+
 Potential questions we can explore
 ----------------------------------
 

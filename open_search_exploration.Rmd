@@ -203,6 +203,19 @@ searchExitRate == 100?
 ```
 
 
+## What we have
+
+Search quality types
+- Addresses, dates, names, good searches, etc.
+- This is where by user data would be helpful
+
+Topic search tool
+- To be able to look at searches by topics
+- Can do more analytics around searches by topic
+
+General field explnations
+- Simple summaries from some of these fields
+
 ## Potential questions we can explore
 
 Are people finding what they are looking for?
@@ -221,6 +234,3 @@ Can we figure out what things people search for often, but is not available?
 Can get some sort of timestamp or session data?
 
 What other specific questions would you like to see us explore?
-
-
-
