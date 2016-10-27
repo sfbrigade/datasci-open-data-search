@@ -10,10 +10,28 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
 
 ```{r libraries}
 require(tidyverse)
+library(stringr)
 ```
 
 ```{r import_data}
 searches <- read_csv("processed_search_term_data/all_queries_w_search_type.csv")
+searches <- searches[-1]
+```
 
+```{r}
+searches$startSearchRoot <- gsub('\\?.*', '', searches$ga.searchStartPage) %>%
+                            gsub("'\\/", '', .) %>%
+                            gsub("\\/.*", '', .)
+
+start_page_root <- searches %>%
+                    group_by(startSearchRoot) %>%
+                    summarise(Count = sum(ga.searchUniques)) %>%
+                    arrange(desc(Count) )
+
+top_search_roots <- head(start_page_root, 20) 
+
+ggplot(aes(x=reorder(startSearchRoot, -Count), y=Count), data = top_search_roots) +
+        geom_bar(stat="identity") +
+        theme(axis.text.x = element_text(angle = -45, hjust = 0))
 ```
 
