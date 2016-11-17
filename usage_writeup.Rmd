@@ -16,7 +16,6 @@ library(stringr)
 ```{r import_data}
 searches <- read_csv("processed_search_term_data/all_queries_w_search_type.csv")
 searches <- searches[-1]
-<<<<<<< HEAD
 # Some summary data rows snuck into the processed file, this removes them
 searches <- filter(searches, !is.na(ga.searchStartPage))
 ```
@@ -47,11 +46,6 @@ other variables also being the same.
 
 
 ```{r search_origination}
-=======
-```
-
-```{r}
->>>>>>> c69d0cf2c2057f07a9ccddb37e06db1a7ad8267e
 searches$startSearchRoot <- gsub('\\?.*', '', searches$ga.searchStartPage) %>%
                             gsub("'\\/", '', .) %>%
                             gsub("\\/.*", '', .)
@@ -61,7 +55,6 @@ start_page_root <- searches %>%
                     summarise(Count = sum(ga.searchUniques)) %>%
                     arrange(desc(Count) )
 
-<<<<<<< HEAD
 
 unique_start_pages <- length(unique(searches$ga.searchStartPage)) 
 
@@ -77,10 +70,8 @@ of searches come from the browse and entrance pages.
 
 ```{r search_origination_plot}
 # What is the difference between '' and (enterance)?
-=======
 top_search_roots <- head(start_page_root, 20) 
 
->>>>>>> c69d0cf2c2057f07a9ccddb37e06db1a7ad8267e
 ggplot(aes(x=reorder(startSearchRoot, -Count), y=Count), data = top_search_roots) +
         geom_bar(stat="identity") +
         theme(axis.text.x = element_text(angle = -45, hjust = 0))
