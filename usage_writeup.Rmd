@@ -16,9 +16,36 @@ library(stringr)
 ```{r import_data}
 searches <- read_csv("processed_search_term_data/all_queries_w_search_type.csv")
 searches <- searches[-1]
+# Some summary data rows snuck into the processed file, this removes them
+searches <- filter(searches, !is.na(ga.searchStartPage))
 ```
 
+
 ```{r}
+# how does google analytics measure sessions?
+
+unique_searches <- sum(searches$ga.searchUniques,na.rm = TRUE)
+
+same_search <- nrow(filter(searches, ga.searchUniques == 0))
+
+same_unique_ratio <- same_search/unique_searches
+
+```
+
+_below wording could be improved_  
+One of the imediately interesting things about the data is how often people
+are searching the same term multiple times in one session. We can sum all of the 
+unique search counts and take the timese that ga.searchUniques equals 0 and see that
+a search is at least `r round(same_unique_ratio, 2) * 100`% as likely to be a 
+reran search as to be new for the user durring the session. In reality this is 
+likely even more common because ga.searchUniques
+does not increase if multiple people have made multiple searches for a term with all the 
+other variables also being the same.
+
+
+
+
+```{r search_origination}
 searches$startSearchRoot <- gsub('\\?.*', '', searches$ga.searchStartPage) %>%
                             gsub("'\\/", '', .) %>%
                             gsub("\\/.*", '', .)
@@ -28,10 +55,30 @@ start_page_root <- searches %>%
                     summarise(Count = sum(ga.searchUniques)) %>%
                     arrange(desc(Count) )
 
+
+unique_start_pages <- length(unique(searches$ga.searchStartPage)) 
+
 top_search_roots <- head(start_page_root, 20) 
 
+```
+
+
+If we look at everywhere that searches originate from there are 
+`r round(unique_start_pages / 1000, 1)` thousand differnt urls but these boil 
+down to `r nrow(start_page_root)` root domains. Even with this the vast majority
+of searches come from the browse and entrance pages. 
+
+```{r search_origination_plot}
+# What is the difference between '' and (enterance)?
 ggplot(aes(x=reorder(startSearchRoot, -Count), y=Count), data = top_search_roots) +
         geom_bar(stat="identity") +
         theme(axis.text.x = element_text(angle = -45, hjust = 0))
 ```
 
+TODO:
+See if I can find ones that look like below and how similar their searches are to the previous one.
+Might be clear what searches are and are not working.
+"'/data?search=restaurant+inspection"
+"'/data?search=restaurant+inspection&dept=&category=&type="
+"'/data?search=restaurant+inspection+"
+"'/data?search=restaurant+inspection+score"   
