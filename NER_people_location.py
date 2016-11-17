@@ -1,6 +1,15 @@
 import cPickle, numpy as np, pandas as pd , re
 from collections import Counter
 from polyglot.text import Text
+'''
+
+The purpose of this py file is to identify people and locations mentioned in the 
+SF open data portal
+
+This has two functions, one for people and one for locations.
+
+Afterwards the data is saved into a csv file.
+'''
 
 tagged_search = pd.read_csv('processed_search_term_data/tagged_search_terms.csv')
 
@@ -17,8 +26,6 @@ string_word = removePunctuation(str(tagged_search_list))
 
 def people(string):
     '''
-    This function will work after much better if you have cleaned 
-    and identified relevant search terms.
     
     Input: A string of relevant search terms
     Output: pulls out names of people identified from the Named Entity Recognition 
@@ -43,8 +50,6 @@ for name_count in (S):
 
 def LOC(string):
     '''
-    This function will work after much better if you have cleaned 
-    and identified relevant search terms.
     
     Input: A string of relevant search terms
     Output: pulls out names of people identified from the Named Entity Recognition 

@@ -1,0 +1,437 @@
+,Location,Location_Count
+0,francisco,492
+1,francisco san,280
+2,california,136
+3,washington,44
+4,shapefile,41
+5,san,32
+6,pessoa janeiro de ipanema rio,29
+7,oakland,29
+8,bayview,27
+9,alameda,26
+10,chicago,19
+11,supervisorial,17
+12,janeiro,16
+13,saigon,14
+14,persia,14
+15,clara santa,14
+16,presidio,12
+17,usa,12
+18,richmond,11
+19,carolina,11
+20,potrero,10
+21,muni,10
+22,castro,10
+23,daly,10
+24,portola,9
+25,africa,9
+26,yerba buena,9
+27,tenderloin,9
+28,266725th,8
+29,singapore,8
+30,lok,8
+31,guerrero,7
+32,sutter,7
+33,ingleside,7
+34,santiago,7
+35,polk,7
+36,sanfrancisco,6
+37,attonrey,6
+38,minnesota,6
+39,lombard,6
+40,naples,6
+41,yerba,6
+42,balboa,6
+43,rio de janeiro,6
+44,shanghai,5
+45,berkeley,5
+46,ukraine,5
+47,springfield,5
+48,buena yerba,5
+49,vallejo,5
+50,hayes,5
+51,mexico,5
+52,prieta,5
+53,santa,5
+54,hayward,5
+55,paris,4
+56,bogota,4
+57,pando,4
+58,athens,4
+59,rutherford,4
+60,seoul,4
+61,fran san,4
+62,haro,4
+63,florida,4
+64,tehran,4
+65,worcester,4
+66,mateo,4
+67,angeles los,4
+68,alabama,4
+69,dakota,4
+70,kml,4
+71,francisco california san,4
+72,buckingham,4
+73,merced,3
+74,ankara,3
+75,ufa,3
+76,bos,3
+77,france,3
+78,richmond carshare,3
+79,connecticut,3
+80,tenderlion,3
+81,niagara,3
+82,richland,3
+83,argentina,3
+84,texas,3
+85,clifton,3
+86,oklahoma,3
+87,colombia,3
+88,bergamo,3
+89,franconia,3
+90,judah,3
+91,brooklyn,3
+92,budapest,3
+93,bristol,3
+94,baltimore,3
+95,fillmore,3
+96,seattle,3
+97,conern,3
+98,amor santiago,3
+99,indonesia,3
+100,fremont,3
+101,kmz,3
+102,thailand,3
+103,arcgis,3
+104,benito,3
+105,vienna,3
+106,levis,3
+107,timisoara,3
+108,verona,3
+109,neighboure,2
+110,shapefile francisco san,2
+111,newhall,2
+112,moldova,2
+113,riyadh,2
+114,btu bucharest buckingham,2
+115,ned,2
+116,cordova,2
+117,franciscp,2
+118,pineville,2
+119,leavenworth,2
+120,stockton,2
+121,usf,2
+122,arabia saudi,2
+123,supervisorial shapefiles,2
+124,parkin,2
+125,tokyo,2
+126,india,2
+127,alameda gervais alain ais,2
+128,americas,2
+129,longview,2
+130,tmnfyvry,2
+131,karachi,2
+132,menlo,2
+133,grunewald,2
+134,japan,2
+135,ethiopia,2
+136,pune punjab,2
+137,kerb,2
+138,osaka,2
+139,fargo,2
+140,francisco busstops san,2
+141,orizaba,2
+142,ragusa,2
+143,syria,2
+144,romania,2
+145,makassar,2
+146,pittsburgh,2
+147,thai,2
+148,censsu,2
+149,countours,2
+150,garffiti,2
+151,arest,2
+152,checkin francisco san,2
+153,montgomery,2
+154,iceland,2
+155,germany,2
+156,tanzania,2
+157,francisco san gigants,2
+158,pankow,2
+159,caltrain,2
+160,mena,2
+161,boundries francisco san,2
+162,lexington,2
+163,croatia,2
+164,taiwan,2
+165,boundry,2
+166,mariposa,2
+167,stuttgart,2
+168,pakistan,2
+169,rochelle,2
+170,louisiana,2
+171,spokane,2
+172,hunan,2
+173,portugal,2
+174,staions,2
+175,kenya,2
+176,italy,2
+177,brasilv brazil brasil,2
+178,annapolis,2
+179,sacramento,2
+180,brussels,2
+181,tuscany,2
+182,jakarta jaipur,2
+183,cupertino,2
+184,boundries,2
+185,jose,2
+186,mashhad,2
+187,sussex,2
+188,shapefile presidio,2
+189,czech,2
+190,madrid,2
+191,malaysia,2
+192,valverde,2
+193,supervisers,2
+194,clarendon,2
+195,folsom,2
+196,bangladesh,2
+197,philadelphia,2
+198,somerset,2
+199,marx,2
+200,clarendon clarion ave,2
+201,istanbul,2
+202,cambodia,2
+203,illinois,2
+204,valle de,2
+205,manhattan,2
+206,solano,2
+207,hillshade hilo,2
+208,oakland francisco san,2
+209,monterey,1
+210,monte,1
+211,rwanda,1
+212,martinique laeuchli martin,1
+213,mitrovica,1
+214,subbasin,1
+215,bryant,1
+216,talbot,1
+217,philippines,1
+218,klung kiev kevin quennesson,1
+219,bangkok bangladesh,1
+220,ms4,1
+221,currie,1
+222,asia,1
+223,citie,1
+224,sfpd,1
+225,bangkok,1
+226,monterey thai,1
+227,oakville,1
+228,cologne colma,1
+229,gucci gujarat,1
+230,taipei,1
+231,seacliff,1
+232,egypt,1
+233,florence,1
+234,landuse san francisco,1
+235,peru,1
+236,sequoia,1
+237,spee,1
+238,candlestick,1
+239,yemen,1
+240,hong kong,1
+241,beijing,1
+242,monica santa,1
+243,richmond titus richard,1
+244,arguello,1
+245,citiworks,1
+246,jose san,1
+247,uae,1
+248,shikh,1
+249,argonne,1
+250,atasfgovorgsn2kq974csv athens aterial,1
+251,johannesburg,1
+252,praha prec,1
+253,countour,1
+254,serrano,1
+255,calworks california,1
+256,paulo sao clara santa,1
+257,geojson,1
+258,sloat slovakia,1
+259,muni mumbai,1
+260,countyproperty,1
+261,camino,1
+262,hamilton,1
+263,vallejo california calworks,1
+264,bernal,1
+265,niteroi,1
+266,levis lexington virginia,1
+267,cerrito,1
+268,covina,1
+269,cairo,1
+270,districtis,1
+271,alameda gervais alain,1
+272,kobe,1
+273,volgograd,1
+274,portland,1
+275,canada,1
+276,mcallister,1
+277,jackson,1
+278,kiev,1
+279,airbnb,1
+280,hilo,1
+281,jiangsu,1
+282,arizona,1
+283,burlingame,1
+284,calgary california,1
+285,ames iowa,1
+286,kolkata korean korea,1
+287,puerto francisco rico,1
+288,pueblo rico puerto,1
+289,dolores,1
+290,malacca,1
+291,fiji,1
+292,strasbourg,1
+293,ecuador,1
+294,geneva,1
+295,holland,1
+296,aragon,1
+297,westgate,1
+298,boston,1
+299,sevilla,1
+300,lts lubbock lpr,1
+301,shapefile supervisorial,1
+302,tirana,1
+303,italy izmir,1
+304,nancy,1
+305,marin,1
+306,francisco districtsd san,1
+307,bordeaux,1
+308,multipatch muni mumbai,1
+309,retiro,1
+310,kosovo,1
+311,oklahoma francisco san,1
+312,nguyen st francis francisco france,1
+313,pleasanton,1
+314,lebanon leavenworth,1
+315,hungary,1
+316,farallon,1
+317,spokane wa,1
+318,chapefile,1
+319,monica santiago santa,1
+320,cracow,1
+321,haiti,1
+322,shp,1
+323,el camino,1
+324,pritzker lisbon,1
+325,hangzhou,1
+326,cheruvattam cheuvattam chicago,1
+327,ohio,1
+328,oakland francisco,1
+329,geary,1
+330,boudries,1
+331,brazil,1
+332,vietnam vienna,1
+333,arabia sausalito saudi,1
+334,amador,1
+335,bucharest buckingham,1
+336,sano santa,1
+337,russia,1
+338,maluku indonesia,1
+339,prado praha prec,1
+340,lexington virginia,1
+341,monterey monte cristo,1
+342,tennessee,1
+343,tehran africa,1
+344,fontes,1
+345,kerbs,1
+346,neighbrhoods,1
+347,kolkata korean korea kosovo,1
+348,spain,1
+349,tehran taz,1
+350,setif,1
+351,barajas,1
+352,sattelite arabia saudi sato,1
+353,teheran,1
+354,surrey,1
+355,francisco san arizona,1
+356,manila,1
+357,joliet illinois,1
+358,tennessee ave 888,1
+359,powell,1
+360,japan jang janet macleod,1
+361,gdb francisco san,1
+362,munich,1
+363,stockton sutter,1
+364,lena lernerdiana diana kline lerner leo levis burnett,1
+365,chattanooga,1
+366,pennsylvania,1
+367,egypt efordable edward effordable,1
+368,houseing,1
+369,sunnyvale,1
+370,brisbane,1
+371,neugart nevada,1
+372,buchanan,1
+373,harrison,1
+374,de janeiro,1
+375,izmir,1
+376,nakiya nairobi,1
+377,florida ocoee,1
+378,sierra leone,1
+379,leipzig,1
+380,boudnary,1
+381,palermo,1
+382,dubai,1
+383,emeryville,1
+384,ave francisco san,1
+385,miami,1
+386,florida florianopolis,1
+387,alamo,1
+388,kallosturin kalyan kaiser kansas pande,1
+389,martin,1
+390,waltham,1
+391,girard,1
+392,fredericksburg virginia,1
+393,lebanon,1
+394,finns,1
+395,dmap francisco san,1
+396,coahes,1
+397,james st,1
+398,caribbean,1
+399,garrett,1
+400,poli,1
+401,francisco chicago,1
+402,kyoto,1
+403,bounday,1
+404,california biosciences,1
+405,francis,1
+406,brittany,1
+407,angeles,1
+408,netfile marcus netherlands neiman,1
+409,gujarat,1
+410,colorado,1
+411,bonaguro,1
+412,los,1
+413,slovakia,1
+414,bolivia,1
+415,redmond,1
+416,dorado,1
+417,shapefiles,1
+418,algiers,1
+419,morocco,1
+420,seneca,1
+421,nguyen francis fredericksburg virginia,1
+422,kezar,1
+423,campton,1
+424,rincon,1
+425,kansas,1
+426,richmond marik richard,1
+427,kansai,1
+428,brattle,1
+429,neighborhod,1
+430,shapefiles philadelphia,1
+431,supe,1
+432,vietnam,1
+433,monte cristo,1
+434,missouri,1
+435,westfield,1
