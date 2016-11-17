@@ -1,0 +1,19 @@
+---
+title: "Usage of the SF Data Portal"
+output: html_document
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE)
+```
+
+```{r libraries}
+require(tidyverse)
+```
+
+```{r import_data}
+searches <- read_csv("processed_search_term_data/all_queries_w_search_type.csv")
+
+```
+

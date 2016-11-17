@@ -1,3 +1,5 @@
+    ## Warning: package 'tidyr' was built under R version 3.2.5
+
 Understanding the Data
 ----------------------
 
@@ -204,30 +206,3 @@ The percentage of searches that resulted in an immediate exit from the property.
 ``` r
 #filter(queries,ga.searchAfterDestinationPage == '(exit)')
 ```
-
-What we have
-------------
-
-Search quality types - Addresses, dates, names, good searches, etc. - This is where by user data would be helpful
-
-Topic search tool - To be able to look at searches by topics - Can do more analytics around searches by topic
-
-General field explnations - Simple summaries from some of these fields
-
-Potential questions we can explore
-----------------------------------
-
-Are people finding what they are looking for? - how can we identify successful vs unsuccessful search.
-
-Where do people search from? - different searches per search area
-
-Maybe people go from categories find what they are looking for more often.
-
-Can we figure out what things people search for often, but is not available?
-
-To ask Jason
-------------
-
-Can get some sort of timestamp or session data?
-
-What other specific questions would you like to see us explore?
