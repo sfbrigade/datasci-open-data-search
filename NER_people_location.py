@@ -35,7 +35,7 @@ def people(string):
     NER = NER.entities
     ent = [removePunctuation(re.sub('I-PER','',str(entity))) for entity in NER if entity.tag == "I-PER"]
     ent =[' '.join(set([w[1:] for w in word.split(' ')])) for word in ent]
-    return list((ent))
+    return len(list((ent[0].split(' '))))
 
 string = people(string_word) 
 
@@ -59,7 +59,7 @@ def LOC(string):
     NER = NER.entities
     ent = [removePunctuation(re.sub('I-LOC','',str(entity))) for entity in NER if entity.tag == "I-LOC"]
     ent =[' '.join(set([w[1:] for w in word.split(' ')])) for word in ent]
-    return list((ent))
+    return len(list((ent[0].split(' '))))
 
 Location = LOC(string_word) 
 
