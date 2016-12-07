@@ -13,6 +13,7 @@ require(tidyverse)
 require(rvest)
 require(stringr)
 require(stringdist)
+library(printr)
 ```
 
 ```{r import_data}
@@ -169,14 +170,14 @@ write_csv(substantial_change_search, 'data/substantial_change_searches.csv')
 
 ```{r}
 over_50_searches <- searches %>%
-                        group_by(ga.searchKeyword) %>%
+                        group_by(tolower(ga.searchKeyword)) %>%
                         summarize(Count = sum(ga.searchUniques)) %>%
                         arrange(desc(Count)) %>%
                         filter(Count >= 50)
 
+names(over_50_searches) <- c("ga.searchKeyword", "Count")
+
 all_datasets <- read_csv('data/Dataset_Inventory.csv')
-
-
 
 dataset_appearances <- function(term, datasets) {
                             sum(grepl(term, datasets$`Dataset Name`, ignore.case = TRUE) | 
@@ -190,19 +191,6 @@ over_50_searches$in_published <- filter(all_datasets, `Publishing Status` == 'Pu
 
 over_50_searches$in_unpublished <- filter(all_datasets, `Publishing Status` == 'Not Published') %>%
                                             sapply(over_50_searches$ga.searchKeyword, dataset_appearances, .)
-
-
-foo <- read_html("https://data.sfgov.org/browse?limitTo=datasets&q=demographics")
-
-foo %>%
-    html_node(".browse2-results-title") %>%
-    html_text()
-
-foo %>%
-    html_nodes(".browse2-result-name-link") %>%
-    html_text() %>%
-    paste(collapse=', ')
-
 
 
 search_results <- function(search_term, datasets_only = TRUE){
@@ -228,34 +216,52 @@ search_results <- function(search_term, datasets_only = TRUE){
 
 
 
-query_searches <- function(all_searches){
+query_searches <- function(all_searches, datasets_only = TRUE){
     results_df <- data_frame()
     for(search_query in all_searches){
             search_query <- gsub(' ', '%20', search_query)
-            results_df <- rbind(results_df, search_results(search_query))
+            results_df <- rbind(results_df, search_results(search_query, datasets_only))
             # pausing it between each one in case there is some sort of throttling 
             Sys.sleep(5)        
     }
     results_df
 }
 
-if(file.exists('data/search_results.csv')){
-    results <- read_csv('data/search_results.csv')
+if(file.exists('data/search_dataset_results.csv')){
+    results <- read_csv('data/search_dataset_results.csv')
 }else{
     results <- query_searches(over_50_searches$ga.searchKeyword)
-    write_csv(results,'data/search_results.csv')
+    write_csv(results,'data/search_dataset_results.csv')
 }
 
 results$result_count <- as.numeric(results$result_count)
 
 result_counts <- select(results, search_term, result_count)
-merge(over_50_searches, result_counts, by.x = 'ga.searchKeyword', by.y = 'search_term')
+over_50_searches <- merge(over_50_searches, result_counts,
+                          by.x = 'ga.searchKeyword', by.y = 'search_term')
+
+if(file.exists('data/search_all_results.csv')){
+    results_all <- read_csv('data/search_all_results.csv')
+}else{
+    results_all <- query_searches(over_50_searches$ga.searchKeyword, FALSE)
+    write_csv(results_all,'data/search_all_results.csv')
+}
+
+results_all$result_count <- as.numeric(results_all$result_count)
+all_result_counts <- select(results_all, search_term, result_count)
+names(all_result_counts) <- c("search_term", "all_result_count")
+
+over_50_searches <- merge(over_50_searches, all_result_counts,
+                          by.x = 'ga.searchKeyword', by.y = 'search_term')
 
 
-over_50_searches
-    
+bad_results <- filter(over_50_searches, result_count <= 1, all_result_count <=5) %>%
+                    arrange(result_count, all_result_count, desc(Count)) %>%
+                    select(-appears_in)
 
+names(bad_results) <- c("Search Term", "Search Count", "In Published Descriptions", "In Unublished Descriptions", "Dataset Results", "All Results")
 
+bad_results
 ```
 
 Call each search term and see how many results there is: 
