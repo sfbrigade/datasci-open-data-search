@@ -10,10 +10,263 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
 
 ```{r libraries}
 require(tidyverse)
+require(rvest)
+require(stringr)
+require(stringdist)
+library(printr)
 ```
 
 ```{r import_data}
 searches <- read_csv("processed_search_term_data/all_queries_w_search_type.csv")
+searches <- searches[-1]
+# Some summary data rows snuck into the processed file, this removes them
+searches <- filter(searches, !is.na(ga.searchStartPage))
+```
+
+
+```{r}
+# how does google analytics measure sessions?
+
+unique_searches <- sum(searches$ga.searchUniques,na.rm = TRUE)
+
+same_search <- nrow(filter(searches, ga.searchUniques == 0))
+
+same_unique_ratio <- same_search/unique_searches
 
 ```
+
+_below wording could be improved_  
+One of the immediately interesting things about the data is how often people
+are searching the same term multiple times in one session. We can sum all of the 
+unique search counts and take the times that ga.searchUniques equals 0 and see that
+a search is at least `r round(same_unique_ratio, 2) * 100`% as likely to be a 
+reran search as to be new for the user during the session. In reality this is 
+likely even more common because ga.searchUniques
+does not increase if multiple people have made multiple searches for a term with all the 
+other variables also being the same.
+
+
+
+
+```{r search_origination}
+searches$startSearchRoot <- gsub('\\?.*', '', searches$ga.searchStartPage) %>%
+                            gsub("'\\/", '', .) %>%
+                            gsub("\\/.*", '', .)
+
+start_page_root <- searches %>%
+                    group_by(startSearchRoot) %>%
+                    summarise(Count = sum(ga.searchUniques)) %>%
+                    arrange(desc(Count) )
+
+
+unique_start_pages <- length(unique(searches$ga.searchStartPage)) 
+
+top_search_roots <- head(start_page_root, 20) 
+
+```
+
+Searches originate from `r round(unique_start_pages / 1000, 1)` thousand 
+different urls, mostly due to previous search results and other metadata being 
+appended to the url. Focusing on just the root domains brings us
+down to `r nrow(start_page_root)`, with the vast majority of searches coming
+from the browse and entrance pages. 
+
+```{r search_origination_plot}
+# What is the difference between '' and (enterance)?
+top_search_roots <- head(start_page_root, 20) 
+
+ggplot(aes(x=reorder(startSearchRoot, -Count), y=Count), data = top_search_roots) +
+        geom_bar(stat="identity") +
+        theme(axis.text.x = element_text(angle = -45, hjust = 0))
+```
+
+Looking at just when users search for the same term multiple times in a session,
+the data root domain jumps to the lead and all of the more specific categories 
+rise.
+
+```{r re_search_origination_plot}
+
+re_search_page_root <- filter(searches, ga.searchUniques == 0) %>%
+                    group_by(startSearchRoot) %>%
+                    summarise(Count = n()) %>%
+                    arrange(desc(Count) )
+
+top_re_search_roots <- head(re_search_page_root, 20) 
+
+ggplot(aes(x=reorder(startSearchRoot, -Count), y=Count), data = top_re_search_roots) +
+        geom_bar(stat="identity") +
+        theme(axis.text.x = element_text(angle = -45, hjust = 0))
+```
+
+```{r}
+search_start <- filter(searches, grepl("'/data\\?search=", ga.searchStartPage))
+
+search_start$last_search <- gsub(".*(data\\?search=)", '', search_start$ga.searchStartPage) %>%
+                                gsub("&.*", "", .) %>%
+                                gsub("\\+", " ", .) %>%
+                                gsub("^\\s+|\\s+$", "", .) %>%
+                                gsub("  ", " ", .)
+
+changed_search <- filter(search_start, !(ga.searchKeyword == last_search)) %>%
+                    select(last_search, ga.searchKeyword)
+
+write_csv(changed_search, 'data/changed_searches.csv')
+
+searched_same <- sum(search_start$ga.searchKeyword == 
+                         search_start$last_search) / nrow(search_start)
+```
+
+By separating previous searches out of ga.searchStartPage we can look at what
+was searched in succession. Shockingly to me, in 
+`r round(searched_same, 2) * 100 `% of these cases people searched the same 
+term again. For the other `r round(1-searched_same, 2) * 100`%, it's pretty 
+interesting to see how people change their queries, which can be
+viewed in the changed_searches.csv.
+
+```{r}
+search_start$lev_distance <-  stringdist(search_start$last_search, search_start$ga.searchKeyword)
+
+filter(search_start, !(ga.searchKeyword == last_search)) %>%
+    select(last_search, ga.searchKeyword, lev_distance) %>%
+    arrange(lev_distance) %>%
+    ggplot(aes(x=lev_distance)) +
+    geom_histogram(binwidth = 1) +
+    ggtitle('Previous Search vs New Search') +
+    xlab('Levenshtein Distance')
+
+```
+
+Since `r round(searched_same, 2) * 100 `% of searches have 0 character changes
+it doesn't make a very interesting plot at all. Ignoring that, the most
+common change for people to make is one character (normally a typo fix). 
+
+More interesting are the searches with a Levenshtein distance over 3. This is 
+when users start really refining their searches or abandon them completely, so
+it's an exilent place for Jason and us to take over for the machines. Plus it
+brings us down to a managable ~340 searches to focuse on. 
+
+From here we can look into:
+
+* If the data is available is it poorly tagged, labled, or named?
+* If the data isn't available, can we make it so?
+* Can we use this as proof to show departments people want your data available?
+
+```{r}
+substantial_change_search <- filter(search_start, 
+                                    !(ga.searchKeyword == last_search) &
+                                    lev_distance > 3) %>%
+                    select(last_search, ga.searchKeyword, lev_distance) %>%
+                    arrange(lev_distance)
+
+write_csv(substantial_change_search, 'data/substantial_change_searches.csv')
+```
+
+```{r}
+# substantial_change_search %>%
+#     group_by(last_search) %>%
+#     summarise(count = n()) %>%
+#     arrange(desc(count))
+```
+
+```{r}
+over_50_searches <- searches %>%
+                        group_by(tolower(ga.searchKeyword)) %>%
+                        summarize(Count = sum(ga.searchUniques)) %>%
+                        arrange(desc(Count)) %>%
+                        filter(Count >= 50)
+
+names(over_50_searches) <- c("ga.searchKeyword", "Count")
+
+all_datasets <- read_csv('data/Dataset_Inventory.csv')
+
+dataset_appearances <- function(term, datasets) {
+                            sum(grepl(term, datasets$`Dataset Name`, ignore.case = TRUE) | 
+                                    grepl(term, datasets$`Dataset Description`, ignore.case = TRUE)) 
+}
+
+over_50_searches$appears_in <- sapply(over_50_searches$ga.searchKeyword, dataset_appearances, all_datasets)
+
+over_50_searches$in_published <- filter(all_datasets, `Publishing Status` == 'Published') %>%
+                                            sapply(over_50_searches$ga.searchKeyword, dataset_appearances, .)
+
+over_50_searches$in_unpublished <- filter(all_datasets, `Publishing Status` == 'Not Published') %>%
+                                            sapply(over_50_searches$ga.searchKeyword, dataset_appearances, .)
+
+
+search_results <- function(search_term, datasets_only = TRUE){
+    if(datasets_only == TRUE){
+        base_url <- "https://data.sfgov.org/browse?limitTo=datasets&q="
+    }else{
+        base_url <- "https://data.sfgov.org/browse?q="
+    }
+    search_url <- paste0(base_url, search_term)
+    search_html <- read_html(search_url)
+    result_count_raw <- html_node(search_html, ".browse2-results-title") %>%
+                        html_text()
+    result_count <- gsub("\n      ", '', result_count_raw) %>%
+                        gsub("( Result).*", '', .)
+    result_datasets <- html_nodes(search_html, ".browse2-result-name-link") %>%
+                            html_text() %>%
+                            paste(collapse=', ')
+    data_frame("search_term" = search_term,
+               'result_count_raw' = result_count_raw,
+               'result_count' = result_count,
+               'result_datasets' = result_datasets)
+} 
+
+
+
+query_searches <- function(all_searches, datasets_only = TRUE){
+    results_df <- data_frame()
+    for(search_query in all_searches){
+            search_query <- gsub(' ', '%20', search_query)
+            results_df <- rbind(results_df, search_results(search_query, datasets_only))
+            # pausing it between each one in case there is some sort of throttling 
+            Sys.sleep(5)        
+    }
+    results_df
+}
+
+if(file.exists('data/search_dataset_results.csv')){
+    results <- read_csv('data/search_dataset_results.csv')
+}else{
+    results <- query_searches(over_50_searches$ga.searchKeyword)
+    write_csv(results,'data/search_dataset_results.csv')
+}
+
+results$result_count <- as.numeric(results$result_count)
+
+result_counts <- select(results, search_term, result_count)
+over_50_searches <- merge(over_50_searches, result_counts,
+                          by.x = 'ga.searchKeyword', by.y = 'search_term')
+
+if(file.exists('data/search_all_results.csv')){
+    results_all <- read_csv('data/search_all_results.csv')
+}else{
+    results_all <- query_searches(over_50_searches$ga.searchKeyword, FALSE)
+    write_csv(results_all,'data/search_all_results.csv')
+}
+
+results_all$result_count <- as.numeric(results_all$result_count)
+all_result_counts <- select(results_all, search_term, result_count)
+names(all_result_counts) <- c("search_term", "all_result_count")
+
+over_50_searches <- merge(over_50_searches, all_result_counts,
+                          by.x = 'ga.searchKeyword', by.y = 'search_term')
+
+
+bad_results <- filter(over_50_searches, result_count <= 1, all_result_count <=5) %>%
+                    arrange(result_count, all_result_count, desc(Count)) %>%
+                    select(-appears_in)
+
+names(bad_results) <- c("Search Term", "Search Count", "In Published Descriptions", "In Unublished Descriptions", "Dataset Results", "All Results")
+
+bad_results
+```
+
+Call each search term and see how many results there is: 
+https://data.sfgov.org/browse?q=street%20cleaning
+Maybe limit to dataset and external
+
+Can look at what the value as assigned by department is and see if true.
 
