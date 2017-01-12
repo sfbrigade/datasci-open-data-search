@@ -1,5 +1,15 @@
 from fuzzywuzzy import fuzz
 
+def removePunctuation(text):
+    '''
+    input: string of words
+    output: punctuation and special characters removed
+    '''
+    for c in '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~\\':
+        text = text.replace(c,"").strip().lower()
+    return text
+        
+
 def threshold(word):
     word = removePunctuation(word)
     fuzzy = []

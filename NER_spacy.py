@@ -1,7 +1,22 @@
+
+__author__ = 'Baolin Liu'
+
 import spacy
 from collections import defaultdict
 nlp = spacy.load('en')
 
+'''
+
+Based on my experience , only "PERSON" , "ORG" , "FAC" only gave anything useful
+
+PERSON - People, including fictional.
+
+ORG	- Companies, agencies, institutions, etc.
+
+FACILITY - Buildings, airports, highways, bridges, etc.
+
+
+'''
 
 def removePunctuation(text):
 
@@ -12,7 +27,7 @@ def removePunctuation(text):
 
 def NER(string):
     '''
-    Input: String
+    Input: String contain names, location, companies , etc.
     Output: Dictionary of Named Entities
     '''
     string = removePunctuation(string)
@@ -28,3 +43,18 @@ def NER(string):
     https://spacy.io/docs/usage/entity-recognition
 
     '''
+
+'''
+
+Example:
+
+S = NER(string_word)
+
+print S['PERSON']
+
+print S['ORG']
+
+print S['FAC']
+
+'''
+
