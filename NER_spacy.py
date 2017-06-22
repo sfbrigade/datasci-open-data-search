@@ -1,9 +1,15 @@
-
 __author__ = 'Baolin Liu'
 
 import spacy
 from collections import defaultdict
-nlp = spacy.load('en')
+import os
+
+try:
+    nlp = spacy.load('en')
+except RuntimeError:
+    bashCommand = "python -m spacy.en.download"
+    os.system(bashCommand)
+    
 
 '''
 
