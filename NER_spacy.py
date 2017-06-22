@@ -26,9 +26,15 @@ FACILITY - Buildings, airports, highways, bridges, etc.
 
 def removePunctuation(text):
 
-    for c in '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~':
-        text = text.replace(c,"").strip().lower()
-    return text
+    # for c in '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~':
+    #     text = text.replace(c,"").strip().lower()
+    # return text
+
+    p = '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~'
+    text = filter(lambda x : x not in p, s)
+    text = map(lambda x : x.strip(), text.split())
+
+    return ' '.join(text)
 
 
 def NER(string):
