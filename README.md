@@ -37,8 +37,8 @@ Th major goals of the project are as follows:
 
 ## Getting Started
 
-1. Clone this repo, for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/)
-2. Data is being kept [here](Repo folder containing raw data)   
+1. Clone this repo, for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/).
+2. Data is being kept [here](https://github.com/sfbrigade/datasci-open-data-search/tree/master/data)   
    
 3. Data processing/transformation script is [Data Combiner](https://github.com/sfbrigade/open-data-search/blob/master/data_combiner.R) 
     - Script that combines raw data from .tsv files into a single .csv file
@@ -58,8 +58,8 @@ Th major goals of the project are as follows:
 #### Other Members:
 
 
-|Name     |  Slack Handle   | Github     |
-|---------|-----------------|------------|
+|Name     |  Slack Handle   |
+|---------|-----------------|
 |[Bao Lin Liu](https://github.com/baolinliu) | @jbaolinliu      |
 |[Scott Brenstuhl](https://github.com/808sAndBR)|     @scott_brenstuhl  |
 
